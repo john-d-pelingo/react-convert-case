@@ -1,7 +1,7 @@
 {
   "name": "react-convert-case",
   "version": "0.0.1",
-  "description": "Convert strings between cases. Built with react and friends. Bootstrapped with the help of Facebook's create-react-app.",
+  "description": "Convert strings between cases. Built with react, redux and friends. Bootstrapped with the help of Facebook's create-react-app.",
   "private": false,
   "homepage": "https://john-d-pelingo.github.io/react-convert-case",
   "author": "John Darryl Pelingo <johndarrylpelingo@gmail.com> (https://github.com/john-d-pelingo)",

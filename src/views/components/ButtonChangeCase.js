@@ -14,7 +14,7 @@ const propTypes = {
 };
 
 const ButtonChangeCase = ({ submitting, theCase, handleSubmit, onSubmit }) => (
-    <div>
+    <div className={ `Button-Change-Case ${ changeCase.lowerCase(theCase) }` }>
         <button onClick={
             handleSubmit(values =>
                 onSubmit({

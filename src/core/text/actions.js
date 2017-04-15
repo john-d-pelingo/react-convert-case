@@ -166,6 +166,15 @@ export function setUpperFirstCase(newCase, newText) {
     };
 }
 
+export function updateCurrentText(newText) {
+    return {
+        type: actionTypes.UPDATE_CURRENT_TEXT,
+        payload: {
+            newText
+        }
+    };
+}
+
 export function setCase(newCase, newText) {
     return function (dispatch, getState) {
         // console.log('textSelectors.getLastText(getState())', textSelectors.getPresentLastText(getState()));

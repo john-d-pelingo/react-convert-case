@@ -17,3 +17,4 @@ export {
 } from '../common-actions';
 
 export const COPY_TEXT = 'COPY_TEXT';
+export const UPDATE_CURRENT_TEXT = 'UPDATE_CURRENT_TEXT';

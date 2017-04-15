@@ -5,10 +5,9 @@ import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import shortid from 'shortid';
 
-import { CASE } from '../../core/constants';
-import { textAreaForm } from '../../core/form';
+import { CASE, TEXT_AREA_FORM } from '../../core/constants';
 
-import ButtonChangeCase from './ButtonChangeCase';
+import { ButtonChangeCase } from './index';
 
 const propTypes = {
     canRedo: PropTypes.bool.isRequired,
@@ -16,10 +15,11 @@ const propTypes = {
     submitting: PropTypes.bool.isRequired,
 
     handleSubmit: PropTypes.func.isRequired,
+    handleTextAreaChange: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired
 };
 
-const TextArea = ({ canRedo, canUndo, submitting, handleSubmit, onSubmit }) => {
+const TextArea = ({ canRedo, canUndo, submitting, handleSubmit, handleTextAreaChange, onSubmit }) => {
     const renderButtonChangeCases = () => {
         return Object.keys(CASE).map(theCase => {
             return (
@@ -31,7 +31,7 @@ const TextArea = ({ canRedo, canUndo, submitting, handleSubmit, onSubmit }) => {
     return (
         <form id="text-area-form" onSubmit={ handleSubmit }>
             <div>
-                <Field name="text" component="textarea" type="text" />
+                <Field name="text" component="textarea" type="text" onChange={ handleTextAreaChange } />
             </div>
 
             <div>
@@ -80,5 +80,5 @@ TextArea.propTypes = propTypes;
 
 export default reduxForm({
     enableReinitialize: true,
-    form: textAreaForm.TEXT_AREA_FORM
+    form: TEXT_AREA_FORM
 })(TextArea);

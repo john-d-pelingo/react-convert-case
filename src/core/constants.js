@@ -17,3 +17,5 @@ export const CASE = {
     UPPER: 'UPPER',
     UPPER_FIRST: 'UPPER_FIRST'
 };
+
+export const TEXT_AREA_FORM = 'TEXT_AREA_FORM';
