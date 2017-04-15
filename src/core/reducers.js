@@ -1,11 +1,15 @@
 import { combineReducers } from 'redux';
+import undoable from 'redux-undo';
+import { reducer as reduxFormReducer } from 'redux-form';
 
-import { boardReducer } from './board';
-import { scoresReducer } from './scores';
-import { ticTacToeReducer } from './tic-tac-toe';
+import { caseReducer } from './case';
+import { textReducer } from './text';
 
 export default combineReducers({
-    board: boardReducer,
-    scores: scoresReducer,
-    ticTacToe: ticTacToeReducer
+    case: caseReducer,
+    form: reduxFormReducer,
+    text: undoable(textReducer, {
+        limit: false
+    })
+    // text: textReducer
 });

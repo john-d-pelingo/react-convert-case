@@ -1,0 +1,38 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# Testing #
+/coverage
+
+# Production #
+/build
+
+# Editors #
+.idea
+.project
+*.iml
+
+# Logs #
+logs
+*.log
+npm-debug.log*
+
+# Runtime data #
+pids
+*.pid
+*.seed
+
+# Miscellaneuous #
+._*
+.DS_Store
+.DS_Store?
+.env
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+npm-debug.log*
+Thumbs.db
+yarn-debug.log*
+yarn-error.log*
