@@ -1,3 +1,3 @@
-import TextAreaContainer from './TextAreaContainer';
+import TextAreaFormContainer from './TextAreaFormContainer';
 
-export default TextAreaContainer;
+export default TextAreaFormContainer;

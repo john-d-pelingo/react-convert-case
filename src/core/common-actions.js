@@ -4,6 +4,7 @@ export const SET_DOT_CASE = 'SET_DOT_CASE';
 export const SET_HEADER_CASE = 'SET_HEADER_CASE';
 export const SET_LOWER_CASE = 'SET_LOWER_CASE';
 export const SET_LOWER_FIRST_CASE = 'SET_LOWER_FIRST_CASE';
+export const SET_NO_CASE = 'SET_NO_CASE';
 export const SET_PARAM_CASE = 'SET_PARAM_CASE';
 export const SET_PASCAL_CASE = 'SET_PASCAL_CASE';
 export const SET_PATH_CASE = 'SET_PATH_CASE';

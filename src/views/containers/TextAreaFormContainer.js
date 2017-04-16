@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable complexity, react/jsx-closing-bracket-location */
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -7,7 +7,7 @@ import { ActionCreators as UndoActionCreators } from 'redux-undo';
 import { createSelector } from 'reselect';
 import copy from 'copy-to-clipboard';
 
-import { TextArea, TextInfo } from '../components';
+import { TextAreaForm, TextInfo } from '../components';
 
 import { textActions, textSelectors } from '../../core/text';
 
@@ -25,7 +25,7 @@ const propTypes = {
     updateCurrentText: PropTypes.func.isRequired
 };
 
-class TextAreaContainer extends React.Component {
+class TextAreaFormContainer extends React.Component {
     constructor(props) {
         super(props);
 
@@ -39,24 +39,24 @@ class TextAreaContainer extends React.Component {
 
 
     handleTextAreaFormSubmit(values) {
-        const { copyToClipboard, newCase, text, redo, undo } = values;
+        const { action, newCase, text } = values;
         const { canRedo, canUndo, copyText, handleRedo, handleUndo, setCase } = this.props;
 
-        if (newCase && text.trim() !== '') {
+        const trimmedText = text.trim();
+
+        if (newCase && trimmedText !== '') {
             setCase(newCase, text);
         }
 
-        if (copyToClipboard && text.trim() !== '') {
-            copy(text);
-            copyText(text);
-        }
-
-        if (undo && canUndo) {
-            handleUndo();
-        }
-
-        if (redo && canRedo) {
-            handleRedo();
+        if (action) {
+            if (action === 'undo' && canUndo) {
+                handleUndo();
+            } else if (action === 'redo' && canRedo) {
+                handleRedo();
+            } else if (action === 'copy-to-clipboard' && trimmedText !== '') {
+                copy(text);
+                copyText(text);
+            }
         }
     }
 
@@ -67,11 +67,12 @@ class TextAreaContainer extends React.Component {
         };
 
         return (
-            <div className="Text-Area-Container">
-                <TextArea
+            <div className="text-area-container">
+                <TextAreaForm
                     initialValues={ initialValues }
                     canRedo={ canRedo }
                     canUndo={ canUndo }
+                    characterCount={ presentCurrentTextCharacterCount }
                     handleTextAreaChange={ this.handleTextAreaChange }
                     onSubmit={ this.handleTextAreaFormSubmit } />
 
@@ -81,7 +82,7 @@ class TextAreaContainer extends React.Component {
     }
 }
 
-TextAreaContainer.propTypes = propTypes;
+TextAreaFormContainer.propTypes = propTypes;
 
 const mapStateToProps = createSelector(
     textSelectors.isFutureTextEmpty,
@@ -109,4 +110,4 @@ const mapDispatchToProps = {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(TextAreaContainer);
+)(TextAreaFormContainer);

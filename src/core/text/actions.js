@@ -1,6 +1,6 @@
 /* eslint-disable complexity */
 
-import { CASE } from '../constants';
+import { CASES } from '../constants';
 import { caseSelectors } from '../case';
 
 import * as actionTypes from './action-types';
@@ -70,6 +70,16 @@ export function setLowerCase(newCase, newText) {
 export function setLowerFirstCase(newCase, newText) {
     return {
         type: actionTypes.SET_LOWER_FIRST_CASE,
+        payload: {
+            newCase,
+            newText
+        }
+    };
+}
+
+export function setNoCase(newCase, newText) {
+    return {
+        type: actionTypes.SET_NO_CASE,
         payload: {
             newCase,
             newText
@@ -177,11 +187,6 @@ export function updateCurrentText(newText) {
 
 export function setCase(newCase, newText) {
     return function (dispatch, getState) {
-        // console.log('textSelectors.getLastText(getState())', textSelectors.getPresentLastText(getState()));
-        // console.log('newText', newText);
-        // console.log('present', getState().text.present);
-        // console.log('diff.diffChars(textSelectors.getLastText(getState()), newText)', diff.diffChars(textSelectors.getLastText(getState()), newText));
-
         const presentLastCasedText = textSelectors.getPresentLastCasedText(getState());
         const diffs = diff.diffChars(presentLastCasedText, newText);
 
@@ -193,49 +198,52 @@ export function setCase(newCase, newText) {
             // caseSelectors.getLastCase(getState()) !== newCase : new case selected is different than last case selected.
 
             switch (newCase) {
-                case CASE.CAMEL:
+                case CASES.CAMEL.name:
                     return dispatch(setCamelCase(newCase, newText));
 
-                case CASE.CONSTANT:
+                case CASES.CONSTANT.name:
                     return dispatch(setConstantCase(newCase, newText));
 
-                case CASE.DOT:
+                case CASES.DOT.name:
                     return dispatch(setDotCase(newCase, newText));
 
-                case CASE.HEADER:
+                case CASES.HEADER.name:
                     return dispatch(setHeaderCase(newCase, newText));
 
-                case CASE.LOWER:
+                case CASES.LOWER.name:
                     return dispatch(setLowerCase(newCase, newText));
 
-                case CASE.LOWER_FIRST:
+                case CASES.LOWER_FIRST.name:
                     return dispatch(setLowerFirstCase(newCase, newText));
 
-                case CASE.PARAM:
+                case CASES.NO.name:
+                    return dispatch(setNoCase(newCase, newText));
+
+                case CASES.PARAM.name:
                     return dispatch(setParamCase(newCase, newText));
 
-                case CASE.PASCAL:
+                case CASES.PASCAL.name:
                     return dispatch(setPascalCase(newCase, newText));
 
-                case CASE.PATH:
+                case CASES.PATH.name:
                     return dispatch(setPathCase(newCase, newText));
 
-                case CASE.SENTENCE:
+                case CASES.SENTENCE.name:
                     return dispatch(setSentenceCase(newCase, newText));
 
-                case CASE.SNAKE:
+                case CASES.SNAKE.name:
                     return dispatch(setSnakeCase(newCase, newText));
 
-                case CASE.SWAP:
+                case CASES.SWAP.name:
                     return dispatch(setSwapCase(newCase, newText));
 
-                case CASE.TITLE:
+                case CASES.TITLE.name:
                     return dispatch(setTitleCase(newCase, newText));
 
-                case CASE.UPPER:
+                case CASES.UPPER.name:
                     return dispatch(setUpperCase(newCase, newText));
 
-                case CASE.UPPER_FIRST:
+                case CASES.UPPER_FIRST.name:
                     return dispatch(setUpperFirstCase(newCase, newText));
 
                 default:

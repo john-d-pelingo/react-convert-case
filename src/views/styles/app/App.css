@@ -1,24 +1,16 @@
-.App {
-  text-align: center;
+.app {
+    text-align : center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+main {
+    margin     : 0 auto;
+    min-height : 500px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@media screen and (max-width : 999px) {
+    /* Up to 999px the below will have effect. */
+    .app main {
+        max-width : 100%;
+        width     : 100%;
+    }
 }

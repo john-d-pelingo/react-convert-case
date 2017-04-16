@@ -7,10 +7,8 @@ const propTypes = {
 };
 
 const TextInfo = ({ characterCount, wordCount }) => (
-    <div className="Text-Info">
-        <span className="character-count">Character Count: { characterCount }</span>
-        &nbsp;&nbsp;&nbsp;
-        <span className="word-count">Word Count: { wordCount }</span>
+    <div className="text-info">
+        <span className="character-count">Character&nbsp;Count:&nbsp;{ characterCount }</span> | <span className="word-count">Word&nbsp;Count:&nbsp;{ wordCount }</span>
     </div>
 );
 

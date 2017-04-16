@@ -6,24 +6,28 @@ import PropTypes from 'prop-types';
 const changeCase = require('change-case');
 
 const propTypes = {
-    submitting: PropTypes.bool.isRequired,
+    disabled: PropTypes.bool.isRequired,
     theCase: PropTypes.string.isRequired,
+    theCaseFunction: PropTypes.string.isRequired,
 
     handleSubmit: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired
 };
 
-const ButtonChangeCase = ({ submitting, theCase, handleSubmit, onSubmit }) => (
-    <div className={ `Button-Change-Case ${ changeCase.lowerCase(theCase) }` }>
-        <button onClick={
+const ButtonChangeCase = ({ disabled, theCase, theCaseFunction, handleSubmit, onSubmit }) => (
+    <button
+        className={ `button-change-case ${ changeCase.paramCase(theCase) }` }
+        disabled={ disabled }
+        name={ `${ changeCase.paramCase(theCase) }-case` }
+        type="submit"
+        onClick={
             handleSubmit(values =>
                 onSubmit({
                     ...values,
                     newCase: theCase
-                })) } name={ `${ changeCase.lowerCase(theCase) }-case` } type="submit" disabled={ submitting }>
-            { changeCase.titleCase(theCase) } Case
-        </button>
-    </div>
+                })) }>
+        { changeCase[theCaseFunction](`${ changeCase.noCase(theCase) } case`) }
+    </button>
 );
 
 ButtonChangeCase.propTypes = propTypes;

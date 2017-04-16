@@ -1,0 +1,33 @@
+::-webkit-input-placeholder {
+    color : #757575;
+}
+
+::-moz-placeholder {
+    color : #757575;
+}
+
+:-ms-input-placeholder {
+    color : #757575;
+}
+
+:-moz-placeholder {
+    color : #757575;
+}
+
+#text-area-form .field-text-area,
+#text-area-form .fields-cases,
+#text-area-form .fields-actions {
+    padding-bottom : 20px;
+}
+
+#text-area-form .text-area {
+    background  : #fff;
+    border      : 3px solid #c2c2c2;
+    color       : #272822;
+    font        : inherit;
+    font-family : 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    height      : 400px;
+    outline     : none;
+    padding     : 10px;
+    width       : 100%;
+}

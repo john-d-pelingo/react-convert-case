@@ -1,10 +1,26 @@
 # react-convert-case
 
-TODO                         
+Convert strings between cases. Built with react, redux and friends. Bootstrapped with the help of Facebook's create-react-app.                     
+
+Try the demo at [https://john-d-pelingo.github.io/react-convert-case/](https://john-d-pelingo.github.io/react-convert-case/).
 
 ## Stack
 
+- [x] Prop-Types
 - [x] React
+- [x] React-Dom
+- [x] React-Redux
+- [x] Redux
+- [x] Redux-Thunk
+- [x] Redux-Devtools-Extension for Chrome
+
+## Utilities
+
+- [x] [Change-Case](https://github.com/blakeembrey/change-case)
+- [x] [Copy-To-Clipboard](https://github.com/sudodoki/copy-to-clipboard)
+- [x] [Diff](https://github.com/kpdecker/jsdiff)
+- [x] [Shortid](https://github.com/dylang/shortid)
+
 
 Alongside pure JavaScript.
 
