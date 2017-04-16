@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import ReactGA from 'react-ga';
 
 const propTypes = {
-    children: PropTypes.object.isRequired
+    children: PropTypes.node.isRequired
+};
+
+const defaultProps = {
+    children: []
 };
 
 class App extends Component {
@@ -27,5 +31,6 @@ class App extends Component {
 }
 
 App.propTypes = propTypes;
+App.defaultProps = defaultProps;
 
 export default App;
