@@ -9,16 +9,16 @@ extends: ["eslint:recommended", "plugin:react/recommended", "airbnb"]
 env:
   browser: true
   es6: true
-  jasmine: true
+#   jasmine: true
   node: true
 
 ecmaFeatures:
   jsx: true
   modules: true
 
-globals:
-  firebase: true
-  sinon: true
+# globals:
+#   firebase: true
+#   sinon: true
 
 rules:
 
