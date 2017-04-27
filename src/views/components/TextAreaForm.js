@@ -22,11 +22,12 @@ const propTypes = {
     submitting: PropTypes.bool.isRequired,
 
     handleSubmit: PropTypes.func.isRequired,
+    handleTextAreaBlur: PropTypes.func.isRequired,
     handleTextAreaChange: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired
 };
 
-const TextAreaForm = ({ canRedo, canUndo, characterCount, submitting, handleSubmit, handleTextAreaChange, onSubmit }) => {
+const TextAreaForm = ({ canRedo, canUndo, characterCount, submitting, handleSubmit, handleTextAreaBlur, handleTextAreaChange, onSubmit }) => {
     const renderButtonChangeCases = () => {
         return Object.keys(CASES).map(theCase => {
             return (
@@ -37,7 +38,7 @@ const TextAreaForm = ({ canRedo, canUndo, characterCount, submitting, handleSubm
     return (
         <form id="text-area-form" onSubmit={ handleSubmit }>
             <div className="field field-text-area">
-                <Field className="text-area" component="textarea" name="text" placeholder="Type or paste your content here" type="text" onChange={ handleTextAreaChange } />
+                <Field autoFocus className="text-area" component="textarea" name="text" placeholder="Type or paste your content here" type="text" onChange={ handleTextAreaChange } onBlur={ handleTextAreaBlur } />
             </div>
 
             <div className="fields fields-cases">

@@ -99,6 +99,11 @@ feature. However we understand that this tool wouldn’t be useful if you couldn
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request! :D
 
+## TODO 
+
+- [ ] Add clear text.
+- [ ] Wait for this [issue](https://github.com/erikras/redux-form/issues/860) to be solved.
+
 ## License
 
 [MIT](https://github.com/john-d-pelingo/react-convert-case/blob/master/LICENSE) &copy; 2017-present

@@ -1,0 +1,17 @@
+.app {
+    text-align : center;
+
+    main {
+        margin     : 0 auto;
+        min-height : 500px;
+    }
+
+    @media screen and (max-width : 999px) {
+        // Up to 999px the below will have effect.
+
+        main {
+            max-width : 100%;
+            width     : 100%;
+        }
+    }
+}

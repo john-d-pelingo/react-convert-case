@@ -1,4 +1,4 @@
-/* eslint-disable complexity, react/jsx-closing-bracket-location */
+/* eslint-disable complexity, class-methods-use-this, react/jsx-closing-bracket-location */
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -33,10 +33,19 @@ class TextAreaFormContainer extends React.Component {
         this.handleTextAreaFormSubmit = this.handleTextAreaFormSubmit.bind(this);
     }
 
+    handleTextAreaBlur(event) {
+        if (event.relatedTarget !== null) {
+            const { className } = event.relatedTarget;
+
+            if (className.indexOf('button-change-case') !== -1) {
+                event.preventDefault();
+            }
+        }
+    }
+
     handleTextAreaChange(event, newValue/* , prevValue*/) {
         this.props.updateCurrentText(newValue);
     }
-
 
     handleTextAreaFormSubmit(values) {
         const { action, newCase, text } = values;
@@ -73,6 +82,7 @@ class TextAreaFormContainer extends React.Component {
                     canRedo={ canRedo }
                     canUndo={ canUndo }
                     characterCount={ presentCurrentTextCharacterCount }
+                    handleTextAreaBlur={ this.handleTextAreaBlur }
                     handleTextAreaChange={ this.handleTextAreaChange }
                     onSubmit={ this.handleTextAreaFormSubmit } />
 

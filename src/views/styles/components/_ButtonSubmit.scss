@@ -2,8 +2,8 @@
     cursor  : pointer;
     margin  : 0 10px;
     padding : 5px;
-}
 
-.button-submit:disabled {
-    cursor : initial;
+    &:disabled {
+        cursor : initial;
+    }
 }
