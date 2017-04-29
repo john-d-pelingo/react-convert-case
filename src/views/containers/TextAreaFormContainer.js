@@ -10,19 +10,29 @@ import copy from 'copy-to-clipboard';
 import { TextAreaForm, TextInfo } from '../components';
 
 import { textActions, textSelectors } from '../../core/text';
+import { caseSelectors } from '../../core/case';
 
 const propTypes = {
     canRedo: PropTypes.bool.isRequired,
     canUndo: PropTypes.bool.isRequired,
+    lastCasePressed: PropTypes.string,
+    presentCurrentText: PropTypes.string.isRequired,
     presentCurrentTextCharacterCount: PropTypes.number.isRequired,
     presentCurrentTextWordCount: PropTypes.number.isRequired,
-    presentLastCasedText: PropTypes.string.isRequired,
+    presentInitialText: PropTypes.string.isRequired,
+    presentInitialTextCount: PropTypes.number.isRequired,
 
+    clearHistoryText: PropTypes.func.isRequired,
     copyText: PropTypes.func.isRequired,
     handleRedo: PropTypes.func.isRequired,
     handleUndo: PropTypes.func.isRequired,
+    resetHistoryText: PropTypes.func.isRequired,
     setCase: PropTypes.func.isRequired,
     updateCurrentText: PropTypes.func.isRequired
+};
+
+const defaultProps = {
+    lastCasePressed: ''
 };
 
 class TextAreaFormContainer extends React.Component {
@@ -49,7 +59,7 @@ class TextAreaFormContainer extends React.Component {
 
     handleTextAreaFormSubmit(values) {
         const { action, newCase, text } = values;
-        const { canRedo, canUndo, copyText, handleRedo, handleUndo, setCase } = this.props;
+        const { copyText, clearHistoryText, handleRedo, handleUndo, resetHistoryText, setCase } = this.props;
 
         const trimmedText = text.trim();
 
@@ -58,21 +68,26 @@ class TextAreaFormContainer extends React.Component {
         }
 
         if (action) {
-            if (action === 'undo' && canUndo) {
-                handleUndo();
-            } else if (action === 'redo' && canRedo) {
-                handleRedo();
+            if (action === 'clear') {
+                clearHistoryText();
             } else if (action === 'copy-to-clipboard' && trimmedText !== '') {
                 copy(text);
                 copyText(text);
+            } else if (action === 'redo') {
+                handleRedo();
+            } else if (action === 'reset') {
+                resetHistoryText();
+            } else if (action === 'undo') {
+                handleUndo();
             }
         }
+        return true;
     }
 
     render() {
-        const { canRedo, canUndo, presentCurrentTextCharacterCount, presentCurrentTextWordCount, presentLastCasedText } = this.props;
+        const { canRedo, canUndo, lastCasePressed, presentCurrentText, presentCurrentTextCharacterCount, presentCurrentTextWordCount, presentInitialText, presentInitialTextCount } = this.props;
         const initialValues = {
-            text: presentLastCasedText
+            text: presentCurrentText
         };
 
         return (
@@ -82,6 +97,11 @@ class TextAreaFormContainer extends React.Component {
                     canRedo={ canRedo }
                     canUndo={ canUndo }
                     characterCount={ presentCurrentTextCharacterCount }
+                    currentText={ presentCurrentText }
+                    initialText={ presentInitialText }
+                    initialTextCount={ presentInitialTextCount }
+                    lastCasePressed={ lastCasePressed }
+                    wordCount={ presentCurrentTextWordCount }
                     handleTextAreaBlur={ this.handleTextAreaBlur }
                     handleTextAreaChange={ this.handleTextAreaChange }
                     onSubmit={ this.handleTextAreaFormSubmit } />
@@ -93,26 +113,35 @@ class TextAreaFormContainer extends React.Component {
 }
 
 TextAreaFormContainer.propTypes = propTypes;
+TextAreaFormContainer.defaultProps = defaultProps;
 
 const mapStateToProps = createSelector(
     textSelectors.isFutureTextEmpty,
     textSelectors.isPastTextEmpty,
+    caseSelectors.getLastCase,
+    textSelectors.getPresentCurrentText,
     textSelectors.getPresentCurrentTextCharacterCount,
     textSelectors.getPresentCurrentTextWordCount,
-    textSelectors.getPresentLastCasedText,
-    (futureTextIsEmpty, pastTextIsEmpty, presentCurrentTextCharacterCount, presentCurrentTextWordCount, presentLastCasedText) => ({
+    textSelectors.getPresentIntialText,
+    textSelectors.getPresentIntialTextCount,
+    (futureTextIsEmpty, pastTextIsEmpty, lastCasePressed, presentCurrentText, presentCurrentTextCharacterCount, presentCurrentTextWordCount, presentInitialText, presentInitialTextCount) => ({
         canRedo: !futureTextIsEmpty,
         canUndo: !pastTextIsEmpty,
+        lastCasePressed,
+        presentCurrentText,
         presentCurrentTextCharacterCount,
         presentCurrentTextWordCount,
-        presentLastCasedText
+        presentInitialText,
+        presentInitialTextCount
     })
 );
 
 const mapDispatchToProps = {
+    clearHistoryText: textActions.clearHistoryText,
     copyText: textActions.copyText,
     handleRedo: UndoActionCreators.redo,
     handleUndo: UndoActionCreators.undo,
+    resetHistoryText: textActions.resetHistoryText,
     setCase: textActions.setCase,
     updateCurrentText: textActions.updateCurrentText
 };

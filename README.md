@@ -4,25 +4,42 @@ Convert strings between cases. Built with react, redux and friends. Bootstrapped
 
 Try the demo at [https://john-d-pelingo.github.io/react-convert-case/](https://john-d-pelingo.github.io/react-convert-case/).
 
-## Stack
+## Application Stack
 
-- [x] Prop-Types
-- [x] React
-- [x] React-Dom
-- [x] React-Redux
-- [x] Redux
-- [x] Redux-Thunk
-- [x] Redux-Devtools-Extension for Chrome
+- [x] create-react-app
+- [x] prop-types
+- [x] react
+- [x] react-dom
+- [x] react-redux
+- [x] redux
+- [x] redux-form
+- [x] redux-thunk
+- [x] redux-undo
+- [x] redux-devtools-extension for Chrome
+- [x] reselect
+
+## Development Stack
+
+- [x] cross-env
+- [x] del-cli
+- [x] eslint
+- [x] gh-pages
+- [x] node-sass
+- [x] npm-run-all
+
+## Test Stack 
+
+- [x] enzyme
+- [x] jest
 
 ## Utilities
 
-- [x] [Change-Case](https://github.com/blakeembrey/change-case)
-- [x] [Copy-To-Clipboard](https://github.com/sudodoki/copy-to-clipboard)
-- [x] [Diff](https://github.com/kpdecker/jsdiff)
-- [x] [Shortid](https://github.com/dylang/shortid)
+- [x] [change-case](https://github.com/blakeembrey/change-case)
+- [x] [copy-to-clipboard](https://github.com/sudodoki/copy-to-clipboard)
+- [x] [diff](https://github.com/kpdecker/jsdiff)
+- [x] [shortid](https://github.com/dylang/shortid)
 
-
-Alongside pure JavaScript.
+Alongside pure and vanilla JavaScript.
 
 ## Installation
 
@@ -101,7 +118,15 @@ feature. However we understand that this tool wouldn’t be useful if you couldn
 
 ## TODO 
 
-- [ ] Add clear text.
+- [x] Enable tab character insertion inside textarea. 
+- [x] Add clear text.
+- [x] Add reset text.
+- [ ] Add shortcuts for:
+  - [ ] Clear
+  - [ ] Copy
+  - [ ] Redo
+  - [ ] Reset
+  - [ ] Undo
 - [ ] Wait for this [issue](https://github.com/erikras/redux-form/issues/860) to be solved.
 
 ## License

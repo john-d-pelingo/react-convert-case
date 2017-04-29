@@ -16,7 +16,7 @@
 
 #text-area-form {
     .field-text-area, .fields-cases, .fields-actions {
-        padding-bottom : 20px;
+        padding-bottom : 10px;
     }
 
     .text-area {
@@ -25,9 +25,10 @@
         color       : #272822;
         font        : inherit;
         font-family : 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-        height      : 400px;
+        height      : 200px;
         outline     : none;
         padding     : 10px;
+        resize      : vertical;
         width       : 100%;
     }
 }

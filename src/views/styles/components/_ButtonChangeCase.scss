@@ -2,10 +2,8 @@
     background         : #c2c2c2;
     border             : 0;
     border             : none;
-    //border-top         : 2px solid #a8a8a8;
     border-radius      : 20px;
     box-shadow         : 0 6px #4a4a4a;
-    -webkit-box-shadow : 0 6px #4a4a4a;
     color              : #111;
     cursor             : pointer;
     display            : inline-block;
@@ -15,18 +13,22 @@
     padding            : 5px 8px;
     position           : relative;
     text-decoration    : none;
-    text-transform     : uppercase;
     transition         : none;
     -webkit-transition : none;
 
-    &:hover {
-        box-shadow         : 0 4px #4a4a4a;
-        -webkit-box-shadow : 0 4px #4a4a4a;
-        opacity            : 1;
-        top                : 2px;
+    &[disabled],
+    &:disabled {
+        opacity : .4;
     }
 
-    &:active {
+    &:hover[enabled],
+    &:hover:enabled {
+        box-shadow : 0 4px #4a4a4a;
+        top        : 2px;
+    }
+
+    &:active[enabled],
+    &:active:enabled {
         box-shadow         : 0 0 #4a4a4a;
         -webkit-box-shadow : 0 0 #4a4a4a;
         top                : 6px;

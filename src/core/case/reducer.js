@@ -14,9 +14,10 @@ export function caseReducer(state = initialCaseState, { payload, type }) {
         case actionTypes.SET_HEADER_CASE:
         case actionTypes.SET_LOWER_CASE:
         case actionTypes.SET_LOWER_FIRST_CASE:
+        case actionTypes.SET_NO_CASE:
+        case actionTypes.SET_PARAM_CASE:
         case actionTypes.SET_PASCAL_CASE:
         case actionTypes.SET_PATH_CASE:
-        case actionTypes.SET_PARAM_CASE:
         case actionTypes.SET_SENTENCE_CASE:
         case actionTypes.SET_SNAKE_CASE:
         case actionTypes.SET_SWAP_CASE:

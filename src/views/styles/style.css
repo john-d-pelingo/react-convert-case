@@ -17,7 +17,7 @@ body {
 
 .app main {
     margin: 0 auto;
-    min-height: 500px;
+    min-height: 300px;
 }
 
 @media screen and (max-width: 999px) {
@@ -33,7 +33,6 @@ body {
     border: none;
     border-radius: 20px;
     box-shadow: 0 6px #4a4a4a;
-    -webkit-box-shadow: 0 6px #4a4a4a;
     color: #111;
     cursor: pointer;
     display: inline-block;
@@ -43,19 +42,20 @@ body {
     padding: 5px 8px;
     position: relative;
     text-decoration: none;
-    text-transform: uppercase;
     transition: none;
     -webkit-transition: none;
 }
 
-.button-change-case:hover {
+.button-change-case[disabled], .button-change-case:disabled {
+    opacity: .4;
+}
+
+.button-change-case:hover[enabled], .button-change-case:hover:enabled {
     box-shadow: 0 4px #4a4a4a;
-    -webkit-box-shadow: 0 4px #4a4a4a;
-    opacity: 1;
     top: 2px;
 }
 
-.button-change-case:active {
+.button-change-case:active[enabled], .button-change-case:active:enabled {
     box-shadow: 0 0 #4a4a4a;
     -webkit-box-shadow: 0 0 #4a4a4a;
     top: 6px;
@@ -88,7 +88,7 @@ body {
 }
 
 #text-area-form .field-text-area, #text-area-form .fields-cases, #text-area-form .fields-actions {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 #text-area-form .text-area {
@@ -97,9 +97,10 @@ body {
     color: #272822;
     font: inherit;
     font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-    height: 400px;
+    height: 200px;
     outline: none;
     padding: 10px;
+    resize: vertical;
     width: 100%;
 }
 

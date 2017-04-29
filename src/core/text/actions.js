@@ -8,12 +8,30 @@ import * as textSelectors from './selectors';
 
 const diff = require('diff');
 
+export function clearHistory() {
+    return {
+        type: actionTypes.CLEAR_HISTORY
+    };
+}
+
+export function clearText() {
+    return {
+        type: actionTypes.CLEAR_TEXT
+    };
+}
+
 export function copyText(newText) {
     return {
         type: actionTypes.COPY_TEXT,
         payload: {
             newText
         }
+    };
+}
+
+export function resetText() {
+    return {
+        type: actionTypes.RESET_TEXT
     };
 }
 
@@ -182,6 +200,20 @@ export function updateCurrentText(newText) {
         payload: {
             newText
         }
+    };
+}
+
+export function clearHistoryText() {
+    return function (dispatch) {
+        dispatch(clearText());
+        return dispatch(clearHistory());
+    };
+}
+
+export function resetHistoryText() {
+    return function (dispatch) {
+        dispatch(resetText());
+        return dispatch(clearHistory());
     };
 }
 

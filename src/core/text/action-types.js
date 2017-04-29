@@ -17,5 +17,8 @@ export {
     SET_UPPER_FIRST_CASE
 } from '../common-actions';
 
+export const CLEAR_TEXT = 'CLEAR_TEXT';
+export const CLEAR_HISTORY = 'CLEAR_HISTORY';
 export const COPY_TEXT = 'COPY_TEXT';
+export const RESET_TEXT = 'RESET_TEXT';
 export const UPDATE_CURRENT_TEXT = 'UPDATE_CURRENT_TEXT';

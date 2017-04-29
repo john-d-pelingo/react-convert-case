@@ -7,6 +7,7 @@ const changeCase = require('change-case');
 export const initialTextState = {
     copied: '',
     current: '',
+    initial: '',
     lastCased: ''
 };
 
@@ -14,15 +15,28 @@ export function textReducer(state = initialTextState, { payload, type }) {
     let casedText = '';
 
     switch (type) {
+        case actionTypes.CLEAR_TEXT:
+            return Object.assign({}, state, {
+                current: '',
+                initial: '',
+                lastCased: ''
+            });
+
         case actionTypes.COPY_TEXT:
             return Object.assign({}, state, {
                 copied: payload.newText
+            });
+
+        case actionTypes.RESET_TEXT:
+            return Object.assign({}, state, {
+                current: state.initial
             });
 
         case actionTypes.SET_CAMEL_CASE:
             casedText = changeCase.camelCase(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -30,6 +44,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.constantCase(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -37,6 +52,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.dotCase(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -44,6 +60,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.headerCase(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -51,6 +68,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.lowerCase(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -58,6 +76,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.lowerCaseFirst(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -65,6 +84,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.noCase(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -72,6 +92,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.paramCase(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -79,6 +100,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.pascalCase(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -86,6 +108,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.pathCase(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -93,6 +116,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.sentenceCase(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -100,6 +124,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.snakeCase(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -107,6 +132,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.swapCase(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -114,6 +140,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.titleCase(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -121,6 +148,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.upperCase(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
@@ -128,6 +156,7 @@ export function textReducer(state = initialTextState, { payload, type }) {
             casedText = changeCase.upperCaseFirst(payload.newText);
             return Object.assign({}, state, {
                 current: casedText,
+                initial: state.lastCased === '' ? payload.newText : state.initial,
                 lastCased: casedText
             });
 
