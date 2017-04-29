@@ -121,6 +121,8 @@ feature. However we understand that this tool wouldn’t be useful if you couldn
 - [x] Enable tab character insertion inside textarea. 
 - [x] Add clear text.
 - [x] Add reset text.
+- Add save data to and load from `localStorage`. 
+- Add download text.
 - [ ] Add shortcuts for:
   - [ ] Clear
   - [ ] Copy
