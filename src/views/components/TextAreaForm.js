@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-closing-bracket-location */
+/* eslint-disable react/jsx-closing-bracket-location, complexity */
 
 import React from 'react';
 import PropTypes from 'prop-types';

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { CASES } from '../../core/constants';
+// import { CASES } from '../../core/constants';
 
 import { ButtonChangeCase } from './index';
 
-const changeCase = require('change-case');
+// const changeCase = require('change-case');
 
 describe('ButtonChangeCase Component', () => {
     let defaultProps;
