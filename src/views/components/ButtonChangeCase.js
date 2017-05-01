@@ -3,30 +3,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const changeCase = require('change-case');
-
 const propTypes = {
+    buttonCase: PropTypes.string.isRequired,
+    buttonClassName: PropTypes.string.isRequired,
+    buttonName: PropTypes.string.isRequired,
+    buttonText: PropTypes.string.isRequired,
     disabled: PropTypes.bool.isRequired,
-    theCase: PropTypes.string.isRequired,
-    theCaseFunction: PropTypes.string.isRequired,
 
     handleSubmit: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired
+    handleTextAreaFormSubmit: PropTypes.func.isRequired
 };
 
-const ButtonChangeCase = ({ disabled, theCase, theCaseFunction, handleSubmit, onSubmit }) => (
+const ButtonChangeCase = ({ disabled, buttonCase, buttonText, buttonClassName, buttonName, handleSubmit, handleTextAreaFormSubmit }) => (
     <button
-        className={ `button-change-case ${ changeCase.paramCase(theCase) }` }
+        className={ `button-change-case ${ buttonClassName }` }
         disabled={ disabled }
-        name={ `${ changeCase.paramCase(theCase) }-case` }
+        name={ buttonName }
         type="submit"
         onClick={
             handleSubmit(values =>
-                onSubmit({
+                handleTextAreaFormSubmit({
                     ...values,
-                    newCase: theCase
-                })) }>
-        { changeCase[theCaseFunction](`${ changeCase.noCase(theCase) } case`) }
+                    newCase: buttonCase
+                })
+            )
+        }>
+        { buttonText }
     </button>
 );
 

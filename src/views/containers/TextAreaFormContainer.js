@@ -104,7 +104,7 @@ class TextAreaFormContainer extends React.Component {
                     wordCount={ presentCurrentTextWordCount }
                     handleTextAreaBlur={ this.handleTextAreaBlur }
                     handleTextAreaChange={ this.handleTextAreaChange }
-                    onSubmit={ this.handleTextAreaFormSubmit } />
+                    handleTextAreaFormSubmit={ this.handleTextAreaFormSubmit } />
 
                 <TextInfo characterCount={ presentCurrentTextCharacterCount } wordCount={ presentCurrentTextWordCount } />
             </div>

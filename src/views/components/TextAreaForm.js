@@ -1,4 +1,4 @@
-/* eslint-disable complexity, react/jsx-first-prop-new-line */
+/* eslint-disable react/jsx-closing-bracket-location */
 
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -34,7 +34,7 @@ const propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     handleTextAreaBlur: PropTypes.func.isRequired,
     handleTextAreaChange: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired
+    handleTextAreaFormSubmit: PropTypes.func.isRequired
 };
 
 const defaultProps = {
@@ -83,13 +83,21 @@ class TextAreaForm extends React.Component {
     }
 
     render() {
-        const { canRedo, canUndo, characterCount, currentText, initialText, initialTextCount, lastCasePressed, submitting, wordCount, handleSubmit, handleTextAreaBlur, handleTextAreaChange, onSubmit } = this.props;
+        const { canRedo, canUndo, characterCount, currentText, initialText, initialTextCount, lastCasePressed, submitting, wordCount, handleSubmit, handleTextAreaBlur, handleTextAreaChange, handleTextAreaFormSubmit } = this.props;
 
         const renderButtonChangeCases = () => {
             return Object.keys(CASES).map(theCase => {
                 const disabled = currentText === changeCase[CASES[theCase].functionName](currentText) || lastCasePressed === theCase || submitting || wordCount === 0;
                 return (
-                    <ButtonChangeCase key={ shortid.generate() } disabled={ disabled } theCase={ theCase } theCaseFunction={ CASES[theCase].functionName } handleSubmit={ handleSubmit } onSubmit={ onSubmit } />
+                    <ButtonChangeCase
+                        buttonCase={ theCase }
+                        buttonClassName={ `${ changeCase.paramCase(theCase) }-case` }
+                        buttonText={ changeCase[CASES[theCase].functionName](`${ changeCase.noCase(theCase) } case`) }
+                        disabled={ disabled }
+                        key={ shortid.generate() }
+                        buttonName={ `${ changeCase.paramCase(theCase) }-case` }
+                        handleSubmit={ handleSubmit }
+                        handleTextAreaFormSubmit={ handleTextAreaFormSubmit } />
                 );
             });
         };
@@ -97,7 +105,18 @@ class TextAreaForm extends React.Component {
         return (
             <form id="text-area-form" onSubmit={ handleSubmit }>
                 <div className="field field-text-area">
-                    <Field autoFocus className="text-area" component="textarea" name="text" placeholder="Type or paste your content here" ref={ compTextArea => { this.compTextArea = compTextArea; } } type="text" withRef onBlur={ handleTextAreaBlur } onChange={ handleTextAreaChange } onKeyDown={ this.handleKeyDown } />
+                    <Field
+                        autoFocus
+                        className="text-area"
+                        component="textarea"
+                        name="text"
+                        placeholder="Type or paste your content here"
+                        ref={ compTextArea => { this.compTextArea = compTextArea; } }
+                        type="text"
+                        withRef
+                        onBlur={ handleTextAreaBlur }
+                        onChange={ handleTextAreaChange }
+                        onKeyDown={ this.handleKeyDown } />
                 </div>
 
                 <div className="fields fields-cases">
@@ -105,19 +124,19 @@ class TextAreaForm extends React.Component {
                 </div>
 
                 <div className="fields fields-actions">
-                    <ButtonSubmit disabled={ characterCount === 0 || submitting } name="clear" handleSubmit={ handleSubmit } onSubmit={ onSubmit }>
+                    <ButtonSubmit disabled={ characterCount === 0 || submitting } name="clear" handleSubmit={ handleSubmit } handleTextAreaFormSubmit={ handleTextAreaFormSubmit }>
                         <SVGClear disabled={ characterCount === 0 || submitting } />
                     </ButtonSubmit>
-                    <ButtonSubmit disabled={ !canUndo || submitting } name="undo" handleSubmit={ handleSubmit } onSubmit={ onSubmit }>
+                    <ButtonSubmit disabled={ !canUndo || submitting } name="undo" handleSubmit={ handleSubmit } handleTextAreaFormSubmit={ handleTextAreaFormSubmit }>
                         <SVGUndo disabled={ !canUndo || submitting } />
                     </ButtonSubmit>
-                    <ButtonSubmit disabled={ characterCount === 0 || submitting } name="copy-to-clipboard" handleSubmit={ handleSubmit } onSubmit={ onSubmit }>
+                    <ButtonSubmit disabled={ characterCount === 0 || submitting } name="copy-to-clipboard" handleSubmit={ handleSubmit } handleTextAreaFormSubmit={ handleTextAreaFormSubmit }>
                         <SVGCopyToClipboard disabled={ characterCount === 0 || submitting } />
                     </ButtonSubmit>
-                    <ButtonSubmit disabled={ !canRedo || submitting } name="redo" handleSubmit={ handleSubmit } onSubmit={ onSubmit }>
+                    <ButtonSubmit disabled={ !canRedo || submitting } name="redo" handleSubmit={ handleSubmit } handleTextAreaFormSubmit={ handleTextAreaFormSubmit }>
                         <SVGRedo disabled={ !canRedo || submitting } />
                     </ButtonSubmit>
-                    <ButtonSubmit disabled={ currentText === initialText || initialTextCount === 0 || submitting } name="reset" handleSubmit={ handleSubmit } onSubmit={ onSubmit }>
+                    <ButtonSubmit disabled={ currentText === initialText || initialTextCount === 0 || submitting } name="reset" handleSubmit={ handleSubmit } handleTextAreaFormSubmit={ handleTextAreaFormSubmit }>
                         <SVGReset disabled={ currentText === initialText || initialTextCount === 0 || submitting } />
                     </ButtonSubmit>
                 </div>

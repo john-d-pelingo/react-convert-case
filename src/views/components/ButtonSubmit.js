@@ -9,10 +9,10 @@ const propTypes = {
     name: PropTypes.string.isRequired,
 
     handleSubmit: PropTypes.func.isRequired,
-    onSubmit: PropTypes.func.isRequired
+    handleTextAreaFormSubmit: PropTypes.func.isRequired
 };
 
-const ButtonSubmit = ({ children, disabled, name, handleSubmit, onSubmit }) => (
+const ButtonSubmit = ({ children, disabled, name, handleSubmit, handleTextAreaFormSubmit }) => (
     <button
         className="button-submit"
         disabled={ disabled }
@@ -20,7 +20,7 @@ const ButtonSubmit = ({ children, disabled, name, handleSubmit, onSubmit }) => (
         type="submit"
         onClick={
             handleSubmit(values =>
-                onSubmit({
+                handleTextAreaFormSubmit({
                     ...values,
                     action: name
                 })) }>
