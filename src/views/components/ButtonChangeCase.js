@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 const propTypes = {
     buttonCase: PropTypes.string.isRequired,
-    buttonClassName: PropTypes.string.isRequired,
     buttonName: PropTypes.string.isRequired,
     buttonText: PropTypes.string.isRequired,
     disabled: PropTypes.bool.isRequired,
@@ -14,9 +13,9 @@ const propTypes = {
     handleTextAreaFormSubmit: PropTypes.func.isRequired
 };
 
-const ButtonChangeCase = ({ disabled, buttonCase, buttonText, buttonClassName, buttonName, handleSubmit, handleTextAreaFormSubmit }) => (
+const ButtonChangeCase = ({ disabled, buttonCase, buttonText, buttonName, handleSubmit, handleTextAreaFormSubmit }) => (
     <button
-        className={ `button-change-case ${ buttonClassName }` }
+        className={ `button-change-case ${ buttonName }` }
         disabled={ disabled }
         name={ buttonName }
         type="submit"

@@ -91,11 +91,10 @@ class TextAreaForm extends React.Component {
                 return (
                     <ButtonChangeCase
                         buttonCase={ theCase }
-                        buttonClassName={ `${ changeCase.paramCase(theCase) }-case` }
+                        buttonName={ `${ changeCase.paramCase(theCase) }-case` }
                         buttonText={ changeCase[CASES[theCase].functionName](`${ changeCase.noCase(theCase) } case`) }
                         disabled={ disabled }
                         key={ shortid.generate() }
-                        buttonName={ `${ changeCase.paramCase(theCase) }-case` }
                         handleSubmit={ handleSubmit }
                         handleTextAreaFormSubmit={ handleTextAreaFormSubmit } />
                 );
@@ -148,6 +147,7 @@ class TextAreaForm extends React.Component {
 TextAreaForm.propTypes = propTypes;
 TextAreaForm.defaultProps = defaultProps;
 
+// TODO: Split up this component to container and component.
 export default reduxForm({
     enableReinitialize: true,
     form: FORMS.TEXT_AREA_FORM

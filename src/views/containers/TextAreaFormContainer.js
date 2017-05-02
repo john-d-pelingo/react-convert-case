@@ -91,7 +91,7 @@ class TextAreaFormContainer extends React.Component {
         };
 
         return (
-            <div className="text-area-container">
+            <div className="text-area-form-container">
                 <TextAreaForm
                     initialValues={ initialValues }
                     canRedo={ canRedo }

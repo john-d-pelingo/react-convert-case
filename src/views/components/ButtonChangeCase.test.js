@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-// import { CASES } from '../../core/constants';
+import sinon from 'sinon';
 
 import { ButtonChangeCase } from './index';
-
-// const changeCase = require('change-case');
 
 describe('ButtonChangeCase Component', () => {
     let defaultProps;
@@ -13,12 +10,10 @@ describe('ButtonChangeCase Component', () => {
     beforeEach(() => {
         defaultProps = {
             buttonCase: '',
-            buttonClassName: '',
+            buttonName: '',
             buttonText: '',
             disabled: true,
-            buttonName: '',
-            handleSubmit() {
-            },
+            handleSubmit: fn => fn,
             handleTextAreaFormSubmit() {
             }
         };
@@ -45,8 +40,38 @@ describe('ButtonChangeCase Component', () => {
         });
     });
 
-    describe('New props', () => {
-        // TODO:
-    });
+    describe('Simulations', () => {
+        it('shouldn\'t submit the form when button is disabled', () => {
+            const onFormSubmit = sinon.spy();
 
+            const wrapper = mount(
+                <form onSubmit={ onFormSubmit }>
+                    <ButtonChangeCase { ...defaultProps } />
+                </form>
+            );
+
+            wrapper.find('button').get(0).click();
+
+            expect(onFormSubmit).toHaveProperty('callCount', 0);
+        });
+
+        it('should submit the form when button is enabled', () => {
+            const onFormSubmit = sinon.spy();
+
+            const newProps = {
+                ...defaultProps,
+                disabled: false
+            };
+
+            const wrapper = mount(
+                <form onSubmit={ onFormSubmit }>
+                    <ButtonChangeCase { ...newProps } />
+                </form>
+            );
+
+            wrapper.find('button').get(0).click();
+
+            expect(onFormSubmit).toHaveProperty('callCount', 1);
+        });
+    });
 });

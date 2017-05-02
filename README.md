@@ -130,7 +130,7 @@ feature. However we understand that this tool wouldn’t be useful if you couldn
   - [ ] Reset
   - [ ] Undo
 - [ ] Wait for this [issue](https://github.com/erikras/redux-form/issues/860) to be solved.
-- Complete tests.
+- [ ] Complete tests.
 
 ## License
 
