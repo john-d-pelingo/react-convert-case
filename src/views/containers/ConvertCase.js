@@ -7,10 +7,12 @@ import { ActionCreators as UndoActionCreators } from 'redux-undo';
 import { createSelector } from 'reselect';
 import copy from 'copy-to-clipboard';
 
-import { TextAreaForm, TextInfo } from '../components';
-
 import { textActions, textSelectors } from '../../core/text';
 import { caseSelectors } from '../../core/case';
+
+import { TextInfo } from '../components';
+
+import { TextAreaFormContainer } from './index';
 
 const propTypes = {
     canRedo: PropTypes.bool.isRequired,
@@ -35,7 +37,7 @@ const defaultProps = {
     lastCasePressed: ''
 };
 
-class TextAreaFormContainer extends React.Component {
+export class ConvertCase extends React.Component {
     constructor(props) {
         super(props);
 
@@ -92,7 +94,7 @@ class TextAreaFormContainer extends React.Component {
 
         return (
             <div className="text-area-form-container">
-                <TextAreaForm
+                <TextAreaFormContainer
                     initialValues={ initialValues }
                     canRedo={ canRedo }
                     canUndo={ canUndo }
@@ -112,8 +114,8 @@ class TextAreaFormContainer extends React.Component {
     }
 }
 
-TextAreaFormContainer.propTypes = propTypes;
-TextAreaFormContainer.defaultProps = defaultProps;
+ConvertCase.propTypes = propTypes;
+ConvertCase.defaultProps = defaultProps;
 
 const mapStateToProps = createSelector(
     textSelectors.isFutureTextEmpty,
@@ -146,7 +148,9 @@ const mapDispatchToProps = {
     updateCurrentText: textActions.updateCurrentText
 };
 
-export default connect(
+const ConvertCaseContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(TextAreaFormContainer);
+)(ConvertCase);
+
+export default ConvertCaseContainer;

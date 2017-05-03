@@ -121,16 +121,17 @@ feature. However we understand that this tool wouldn’t be useful if you couldn
 - [x] Enable tab character insertion inside textarea. 
 - [x] Add clear text.
 - [x] Add reset text.
-- Add save data to and load from `localStorage`. 
-- Add download text.
+- [ ] Add save data to and load from `localStorage` or browser cookies. 
+- [ ] Add download text capability.
 - [ ] Add shortcuts for:
   - [ ] Clear
   - [ ] Copy
   - [ ] Redo
   - [ ] Reset
   - [ ] Undo
-- [ ] Wait for this [issue](https://github.com/erikras/redux-form/issues/860) to be solved.
 - [ ] Complete tests.
+- [ ] Utilize HOC for change case buttons and action buttons.
+- [ ] Wait for this [issue](https://github.com/erikras/redux-form/issues/860) to be solved.
 
 ## License
 

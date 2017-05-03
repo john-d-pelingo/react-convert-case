@@ -2,10 +2,10 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Field, reduxForm } from 'redux-form';
+import { Field } from 'redux-form';
 import shortid from 'shortid';
 
-import { CASES, FORMS } from '../../core/constants';
+import { CASES } from '../../core/constants';
 
 import {
     ButtonChangeCase,
@@ -110,7 +110,9 @@ class TextAreaForm extends React.Component {
                         component="textarea"
                         name="text"
                         placeholder="Type or paste your content here"
-                        ref={ compTextArea => { this.compTextArea = compTextArea; } }
+                        ref={ compTextArea => {
+                            this.compTextArea = compTextArea;
+                        } }
                         type="text"
                         withRef
                         onBlur={ handleTextAreaBlur }
@@ -147,8 +149,4 @@ class TextAreaForm extends React.Component {
 TextAreaForm.propTypes = propTypes;
 TextAreaForm.defaultProps = defaultProps;
 
-// TODO: Split up this component to container and component.
-export default reduxForm({
-    enableReinitialize: true,
-    form: FORMS.TEXT_AREA_FORM
-})(TextAreaForm);
+export default TextAreaForm;

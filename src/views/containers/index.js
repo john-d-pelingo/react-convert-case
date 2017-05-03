@@ -1,3 +1,7 @@
-import TextAreaFormContainer from './TextAreaFormContainer';
+import ConvertCaseContainer from './ConvertCase';
+import TextAreaFormContainer from './TextAreaForm';
 
-export default TextAreaFormContainer;
+export {
+    ConvertCaseContainer,
+    TextAreaFormContainer
+};
