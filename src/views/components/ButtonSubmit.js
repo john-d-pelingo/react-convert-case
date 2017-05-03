@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-    children: PropTypes.object.isRequired,
+    children: PropTypes.node.isRequired,
     disabled: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
 

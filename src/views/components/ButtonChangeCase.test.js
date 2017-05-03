@@ -2,7 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import sinon from 'sinon';
 
+import { CASES } from '../../core/constants';
+
 import { ButtonChangeCase } from './index';
+
+const changeCase = require('change-case');
 
 describe('ButtonChangeCase Component', () => {
     let defaultProps;
@@ -14,8 +18,7 @@ describe('ButtonChangeCase Component', () => {
             buttonText: '',
             disabled: true,
             handleSubmit: fn => fn,
-            handleTextAreaFormSubmit() {
-            }
+            handleTextAreaFormSubmit: values => values
         };
     });
 
@@ -34,10 +37,55 @@ describe('ButtonChangeCase Component', () => {
         });
 
         it('should render to static HTML', () => {
-            expect(render(
-                <ButtonChangeCase { ...defaultProps } />).text()
-            ).toBe('');
+            expect(render(<ButtonChangeCase { ...defaultProps } />).text()).toBe('');
         });
+    });
+
+    describe('New props', () => {
+        function displayChangeCasesButtons(theButtonCase, theButtonName, theButtonText) {
+            describe(`${ theButtonText } button`, () => {
+                let newProps;
+
+                beforeEach(() => {
+                    newProps = {
+                        ...defaultProps,
+                        buttonCase: theButtonCase,
+                        buttonName: theButtonName,
+                        buttonText: theButtonText
+                    };
+                });
+
+                it('renders without crashing', () => {
+                    const div = document.createElement('div');
+                    ReactDOM.render(<ButtonChangeCase { ...newProps } />, div);
+                });
+
+                it(`should be selectable by class ".${ theButtonName }"`, () => {
+                    expect(shallow(<ButtonChangeCase { ...newProps } />).is(`.${ theButtonName }`)).toBe(true);
+                });
+
+                it('should mount in a full DOM', () => {
+                    expect(mount(<ButtonChangeCase { ...newProps } />).find(`.${ theButtonName }`).length).toBe(1);
+                });
+
+                it('should render to static HTML', () => {
+                    expect(render(<ButtonChangeCase { ...newProps } />).text()).toBe(theButtonText);
+                });
+            });
+        }
+
+        const casesKeys = Object.keys(CASES);
+
+        for (let ii = 0; ii < casesKeys.length; ii++) {
+            const theButtonName = CASES[casesKeys[ii]].name;
+            const theFunctionName = CASES[casesKeys[ii]].functionName;
+
+            displayChangeCasesButtons(
+                theButtonName,
+                changeCase.paramCase(theButtonName) + '-case',
+                changeCase[theFunctionName](`${ changeCase.noCase(theButtonName) } case`)
+            );
+        }
     });
 
     describe('Simulations', () => {

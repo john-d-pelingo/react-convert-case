@@ -66,21 +66,21 @@ export class ConvertCase extends React.Component {
         const trimmedText = text.trim();
 
         if (newCase && trimmedText !== '') {
-            setCase(newCase, text);
+            return setCase(newCase, text);
         }
 
         if (action) {
             if (action === 'clear') {
-                clearHistoryText();
+                return clearHistoryText();
             } else if (action === 'copy-to-clipboard' && trimmedText !== '') {
                 copy(text);
-                copyText(text);
+                return copyText(text);
             } else if (action === 'redo') {
-                handleRedo();
+                return handleRedo();
             } else if (action === 'reset') {
-                resetHistoryText();
+                return resetHistoryText();
             } else if (action === 'undo') {
-                handleUndo();
+                return handleUndo();
             }
         }
         return true;

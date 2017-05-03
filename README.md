@@ -130,7 +130,9 @@ feature. However we understand that this tool wouldn’t be useful if you couldn
   - [ ] Reset
   - [ ] Undo
 - [ ] Complete tests.
-- [ ] Utilize HOC for change case buttons and action buttons.
+  - [ ] Redux
+  - [ ] Containers
+  - [ ] Components
 - [ ] Wait for this [issue](https://github.com/erikras/redux-form/issues/860) to be solved.
 
 ## License
