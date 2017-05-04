@@ -11,7 +11,7 @@ import {
     ButtonChangeCase,
     ButtonSubmit,
     SVGClear,
-    SVGCopyToClipboard,
+    SVGCopy,
     SVGRedo,
     SVGReset,
     SVGUndo
@@ -131,8 +131,8 @@ class TextAreaForm extends React.Component {
                     <ButtonSubmit disabled={ !canUndo || submitting } name="undo" handleSubmit={ handleSubmit } handleTextAreaFormSubmit={ handleTextAreaFormSubmit }>
                         <SVGUndo disabled={ !canUndo || submitting } />
                     </ButtonSubmit>
-                    <ButtonSubmit disabled={ characterCount === 0 || submitting } name="copy-to-clipboard" handleSubmit={ handleSubmit } handleTextAreaFormSubmit={ handleTextAreaFormSubmit }>
-                        <SVGCopyToClipboard disabled={ characterCount === 0 || submitting } />
+                    <ButtonSubmit disabled={ characterCount === 0 || submitting } name="copy" handleSubmit={ handleSubmit } handleTextAreaFormSubmit={ handleTextAreaFormSubmit }>
+                        <SVGCopy disabled={ characterCount === 0 || submitting } />
                     </ButtonSubmit>
                     <ButtonSubmit disabled={ !canRedo || submitting } name="redo" handleSubmit={ handleSubmit } handleTextAreaFormSubmit={ handleTextAreaFormSubmit }>
                         <SVGRedo disabled={ !canRedo || submitting } />

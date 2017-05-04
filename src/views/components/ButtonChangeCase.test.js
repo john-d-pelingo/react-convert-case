@@ -17,6 +17,7 @@ describe('ButtonChangeCase Component', () => {
             buttonName: '',
             buttonText: '',
             disabled: true,
+
             handleSubmit: fn => fn,
             handleTextAreaFormSubmit: values => values
         };

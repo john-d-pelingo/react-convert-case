@@ -6,7 +6,7 @@ import shortid from 'shortid';
 import {
     ButtonSubmit,
     SVGClear,
-    SVGCopyToClipboard,
+    SVGCopy,
     SVGRedo,
     SVGReset,
     SVGUndo
@@ -20,6 +20,7 @@ describe('ButtonSubmit Component', () => {
             children: [],
             disabled: true,
             name: '',
+
             handleSubmit: fn => fn,
             handleTextAreaFormSubmit: values => values
         };
@@ -79,78 +80,188 @@ describe('ButtonSubmit Component', () => {
         });
     });
 
-    describe('ButtonSubmit SVG Decorated Component', () => {
-        function displayDecoratedSubmitButtons(decoratorComponentName, decoratorComponentPropName, decoratorComponent) {
-            describe(`${ decoratorComponentName } Decorator`, () => {
-                let newProps;
+    describe('ButtonSubmit SVGClear Decorated Component', () => {
+        let newProps;
 
-                beforeEach(() => {
-                    newProps = {
-                        ...defaultProps,
-                        children: [
-                            <decoratorComponent key={ shortid.generate() } />
-                        ],
-                        disabled: false,
-                        name: decoratorComponentPropName,
-                        handleSubmit: fn => fn,
-                        handleTextAreaFormSubmit: values => values
-                    };
-                });
-
-                it('renders without crashing', () => {
-                    const div = document.createElement('div');
-                    ReactDOM.render(<ButtonSubmit { ...newProps } />, div);
-                });
-
-                it(`should be selectable by class ".button-submit"`, () => {
-                    expect(shallow(<ButtonSubmit { ...newProps } />).is('.button-submit')).toBe(true);
-                });
-
-                it('should mount in a full DOM', () => {
-                    const wrapper = mount(<ButtonSubmit { ...newProps } />);
-                    expect(wrapper.find('.button-submit').length).toBe(1);
-                    expect(wrapper.find('.button-submit').children()).toHaveLength(1);
-
-                    // TODO: Cannot find svg in child component.
-                    // expect(wrapper.find('decoratorComponent').length).toBe(1);
-                });
-
-                it('should render to static HTML', () => {
-                    expect(render(<ButtonSubmit { ...newProps } />).text()).toBe('');
-                });
-            });
-        }
-
-        const decoratedButtons = {
-            SVGClear: {
+        beforeEach(() => {
+            newProps = {
+                ...defaultProps,
+                children: [
+                    <SVGClear key={ shortid.generate() } disabled={ false } />
+                ],
+                disabled: false,
                 name: 'clear',
-                component: SVGClear
-            },
-            SVGCopyToClipboard: {
-                name: 'copy-to-clipboard',
-                component: SVGCopyToClipboard
-            },
-            SVGRedo: {
-                name: 'redo',
-                component: SVGRedo
-            },
-            SVGReset: {
-                name: 'reset',
-                component: SVGReset
-            },
-            SVGUndo: {
-                name: 'undo',
-                component: SVGUndo
-            }
-        };
-        const decoratedButtonsKeys = Object.keys(decoratedButtons);
+                handleSubmit: fn => fn,
+                handleTextAreaFormSubmit: values => values
+            };
+        });
 
-        for (let ii = 0; ii < decoratedButtonsKeys.length; ii++) {
-            displayDecoratedSubmitButtons(
-                decoratedButtonsKeys[ii],
-                decoratedButtons[decoratedButtonsKeys[ii]].name,
-                decoratedButtons[decoratedButtonsKeys[ii]].component
-            );
-        }
+        it('renders without crashing', () => {
+            const div = document.createElement('div');
+            ReactDOM.render(<ButtonSubmit { ...newProps } />, div);
+        });
+
+        it(`should be selectable by class ".button-submit"`, () => {
+            expect(shallow(<ButtonSubmit { ...newProps } />).is('.button-submit')).toBe(true);
+        });
+
+        it('should mount in a full DOM along with its children', () => {
+            const wrapper = mount(<ButtonSubmit { ...newProps } />);
+            expect(wrapper.find('.button-submit').length).toBe(1);
+            expect(wrapper.find('.button-submit').children()).toHaveLength(1);
+            expect(wrapper.find('.svg-clear').length).toBe(1);
+        });
+
+        it('should render to no static HTML', () => {
+            expect(render(<ButtonSubmit { ...newProps } />).text()).toBe('');
+        });
+    });
+
+    describe('ButtonSubmit SVGCopy Decorated Component', () => {
+        let newProps;
+
+        beforeEach(() => {
+            newProps = {
+                ...defaultProps,
+                children: [
+                    <SVGCopy key={ shortid.generate() } disabled={ false } />
+                ],
+                disabled: false,
+                name: 'copy',
+                handleSubmit: fn => fn,
+                handleTextAreaFormSubmit: values => values
+            };
+        });
+
+        it('renders without crashing', () => {
+            const div = document.createElement('div');
+            ReactDOM.render(<ButtonSubmit { ...newProps } />, div);
+        });
+
+        it(`should be selectable by class ".button-submit"`, () => {
+            expect(shallow(<ButtonSubmit { ...newProps } />).is('.button-submit')).toBe(true);
+        });
+
+        it('should mount in a full DOM along with its children', () => {
+            const wrapper = mount(<ButtonSubmit { ...newProps } />);
+            expect(wrapper.find('.button-submit').length).toBe(1);
+            expect(wrapper.find('.button-submit').children()).toHaveLength(1);
+            expect(wrapper.find('svg').length).toBe(1);
+        });
+
+        it('should render to no static HTML', () => {
+            expect(render(<ButtonSubmit { ...newProps } />).text()).toBe('');
+        });
+    });
+
+    describe('ButtonSubmit SVGRedo Decorated Component', () => {
+        let newProps;
+
+        beforeEach(() => {
+            newProps = {
+                ...defaultProps,
+                children: [
+                    <SVGRedo key={ shortid.generate() } disabled={ false } />
+                ],
+                disabled: false,
+                name: 'redo',
+                handleSubmit: fn => fn,
+                handleTextAreaFormSubmit: values => values
+            };
+        });
+
+        it('renders without crashing', () => {
+            const div = document.createElement('div');
+            ReactDOM.render(<ButtonSubmit { ...newProps } />, div);
+        });
+
+        it(`should be selectable by class ".button-submit"`, () => {
+            expect(shallow(<ButtonSubmit { ...newProps } />).is('.button-submit')).toBe(true);
+        });
+
+        it('should mount in a full DOM along with its children', () => {
+            const wrapper = mount(<ButtonSubmit { ...newProps } />);
+            expect(wrapper.find('.button-submit').length).toBe(1);
+            expect(wrapper.find('.button-submit').children()).toHaveLength(1);
+            expect(wrapper.find('svg').length).toBe(1);
+        });
+
+        it('should render to no static HTML', () => {
+            expect(render(<ButtonSubmit { ...newProps } />).text()).toBe('');
+        });
+    });
+
+    describe('ButtonSubmit SVGReset Decorated Component', () => {
+        let newProps;
+
+        beforeEach(() => {
+            newProps = {
+                ...defaultProps,
+                children: [
+                    <SVGReset key={ shortid.generate() } disabled={ false } />
+                ],
+                disabled: false,
+                name: 'reset',
+                handleSubmit: fn => fn,
+                handleTextAreaFormSubmit: values => values
+            };
+        });
+
+        it('renders without crashing', () => {
+            const div = document.createElement('div');
+            ReactDOM.render(<ButtonSubmit { ...newProps } />, div);
+        });
+
+        it(`should be selectable by class ".button-submit"`, () => {
+            expect(shallow(<ButtonSubmit { ...newProps } />).is('.button-submit')).toBe(true);
+        });
+
+        it('should mount in a full DOM along with its children', () => {
+            const wrapper = mount(<ButtonSubmit { ...newProps } />);
+            expect(wrapper.find('.button-submit').length).toBe(1);
+            expect(wrapper.find('.button-submit').children()).toHaveLength(1);
+            expect(wrapper.find('svg').length).toBe(1);
+        });
+
+        it('should render to no static HTML', () => {
+            expect(render(<ButtonSubmit { ...newProps } />).text()).toBe('');
+        });
+    });
+
+    describe('ButtonSubmit SVGUndo Decorated Component', () => {
+        let newProps;
+
+        beforeEach(() => {
+            newProps = {
+                ...defaultProps,
+                children: [
+                    <SVGUndo key={ shortid.generate() } disabled={ false } />
+                ],
+                disabled: false,
+                name: 'undo',
+                handleSubmit: fn => fn,
+                handleTextAreaFormSubmit: values => values
+            };
+        });
+
+        it('renders without crashing', () => {
+            const div = document.createElement('div');
+            ReactDOM.render(<ButtonSubmit { ...newProps } />, div);
+        });
+
+        it(`should be selectable by class ".button-submit"`, () => {
+            expect(shallow(<ButtonSubmit { ...newProps } />).is('.button-submit')).toBe(true);
+        });
+
+        it('should mount in a full DOM along with its children', () => {
+            const wrapper = mount(<ButtonSubmit { ...newProps } />);
+            expect(wrapper.find('.button-submit').length).toBe(1);
+            expect(wrapper.find('.button-submit').children()).toHaveLength(1);
+            expect(wrapper.find('svg').length).toBe(1);
+        });
+
+        it('should render to no static HTML', () => {
+            expect(render(<ButtonSubmit { ...newProps } />).text()).toBe('');
+        });
     });
 });

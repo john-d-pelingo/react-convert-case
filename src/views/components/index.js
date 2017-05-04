@@ -1,7 +1,7 @@
 import ButtonChangeCase from './ButtonChangeCase';
 import ButtonSubmit from './ButtonSubmit';
 import SVGClear from './SVGClear';
-import SVGCopyToClipboard from './SVGCopyToClipboard';
+import SVGCopy from './SVGCopy';
 import SVGRedo from './SVGRedo';
 import SVGReset from './SVGReset';
 import SVGUndo from './SVGUndo';
@@ -12,7 +12,7 @@ export {
     ButtonChangeCase,
     ButtonSubmit,
     SVGClear,
-    SVGCopyToClipboard,
+    SVGCopy,
     SVGRedo,
     SVGReset,
     SVGUndo,

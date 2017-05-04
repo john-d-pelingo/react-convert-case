@@ -72,7 +72,7 @@ export class ConvertCase extends React.Component {
         if (action) {
             if (action === 'clear') {
                 return clearHistoryText();
-            } else if (action === 'copy-to-clipboard' && trimmedText !== '') {
+            } else if (action === 'copy' && trimmedText !== '') {
                 copy(text);
                 return copyText(text);
             } else if (action === 'redo') {
