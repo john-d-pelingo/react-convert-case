@@ -1,5 +1,3 @@
-// TODO: Add testing capability for this container and the component.
-
 import { reduxForm } from 'redux-form';
 
 import { FORMS } from '../../core/constants';

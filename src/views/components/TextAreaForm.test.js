@@ -27,7 +27,8 @@ describe('TextAreaForm Component', () => {
 
     describe('Default props', () => {
         it.skip('renders without crashing', () => {
-            // TODO: Displays 'Field must be inside a component decorated with reduxForm()'
+            // Displays 'Field must be inside a component decorated with reduxForm()'
+            // Can only shallow render when testing redux-form.
             const div = document.createElement('div');
             ReactDOM.render(<TextAreaForm { ...defaultProps } />, div);
         });
@@ -37,12 +38,14 @@ describe('TextAreaForm Component', () => {
         });
 
         it.skip('should mount in a full DOM', () => {
-            // TODO: Displays 'Field must be inside a component decorated with reduxForm()'
+            // Displays 'Field must be inside a component decorated with reduxForm()'
+            // Can only shallow render when testing redux-form.
             expect(mount(<TextAreaForm { ...defaultProps } />).find('#text-area-form').length).toBe(1);
         });
 
         it.skip('should render to static HTML', () => {
-            // TODO: Displays 'Field must be inside a component decorated with reduxForm()'
+            // Displays 'Field must be inside a component decorated with reduxForm()'
+            // Can only shallow render when testing redux-form.
             expect(render(<TextAreaForm { ...defaultProps } />).text()).toBe('');
         });
     });

@@ -129,10 +129,10 @@ feature. However we understand that this tool wouldn’t be useful if you couldn
   - [ ] Redo
   - [ ] Reset
   - [ ] Undo
-- [ ] Complete tests.
+- [ ] Complete tests for:
   - [ ] Redux
   - [ ] Containers
-  - [ ] Components
+  - [x] Components except TextAreaForm
 - [ ] Add snapshot testing.  
 - [ ] Wait for this [issue](https://github.com/erikras/redux-form/issues/860) to be solved.
 
