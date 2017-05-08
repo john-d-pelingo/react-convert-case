@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { TextAreaForm } from './index';
+import TextAreaForm from './TextAreaForm';
 
-describe('TextAreaForm Component', () => {
+describe('TextAreaForm component', () => {
     let defaultProps;
 
     beforeEach(() => {

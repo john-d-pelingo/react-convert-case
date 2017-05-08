@@ -27,6 +27,10 @@ const CASES = {
         name: 'NO',
         functionName: 'noCase'
     },
+    PARAM: {
+        name: 'PARAM',
+        functionName: 'paramCase'
+    },
     PASCAL: {
         name: 'PASCAL',
         functionName: 'pascalCase'
@@ -34,10 +38,6 @@ const CASES = {
     PATH: {
         name: 'PATH',
         functionName: 'pathCase'
-    },
-    PARAM: {
-        name: 'PARAM',
-        functionName: 'paramCase'
     },
     SENTENCE: {
         name: 'SENTENCE',

@@ -3,16 +3,14 @@ import ReactDOM from 'react-dom';
 import sinon from 'sinon';
 import shortid from 'shortid';
 
-import {
-    ButtonSubmit,
-    SVGClear,
-    SVGCopy,
-    SVGRedo,
-    SVGReset,
-    SVGUndo
-} from './index';
+import ButtonSubmit from './ButtonSubmit';
+import SVGClear from './SVGClear';
+import SVGCopy from './SVGCopy';
+import SVGRedo from './SVGRedo';
+import SVGReset from './SVGReset';
+import SVGUndo from './SVGUndo';
 
-describe('ButtonSubmit Component', () => {
+describe('ButtonSubmit component', () => {
     let defaultProps;
 
     beforeEach(() => {
@@ -80,7 +78,7 @@ describe('ButtonSubmit Component', () => {
         });
     });
 
-    describe('ButtonSubmit SVGClear Decorated Component', () => {
+    describe('ButtonSubmit SVGClear Decorated component', () => {
         let newProps;
 
         beforeEach(() => {
@@ -117,7 +115,7 @@ describe('ButtonSubmit Component', () => {
         });
     });
 
-    describe('ButtonSubmit SVGCopy Decorated Component', () => {
+    describe('ButtonSubmit SVGCopy Decorated component', () => {
         let newProps;
 
         beforeEach(() => {
@@ -154,7 +152,7 @@ describe('ButtonSubmit Component', () => {
         });
     });
 
-    describe('ButtonSubmit SVGRedo Decorated Component', () => {
+    describe('ButtonSubmit SVGRedo Decorated component', () => {
         let newProps;
 
         beforeEach(() => {
@@ -191,7 +189,7 @@ describe('ButtonSubmit Component', () => {
         });
     });
 
-    describe('ButtonSubmit SVGReset Decorated Component', () => {
+    describe('ButtonSubmit SVGReset Decorated component', () => {
         let newProps;
 
         beforeEach(() => {
@@ -228,7 +226,7 @@ describe('ButtonSubmit Component', () => {
         });
     });
 
-    describe('ButtonSubmit SVGUndo Decorated Component', () => {
+    describe('ButtonSubmit SVGUndo Decorated component', () => {
         let newProps;
 
         beforeEach(() => {

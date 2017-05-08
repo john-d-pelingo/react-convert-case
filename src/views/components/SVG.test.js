@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {
-    SVGClear,
-    SVGCopy,
-    SVGRedo,
-    SVGReset,
-    SVGUndo
-} from './index';
+import SVGClear from './SVGClear';
+import SVGCopy from './SVGCopy';
+import SVGRedo from './SVGRedo';
+import SVGReset from './SVGReset';
+import SVGUndo from './SVGUndo';
 
 describe('SVGs', () => {
     let defaultProps;
@@ -18,7 +16,7 @@ describe('SVGs', () => {
         };
     });
 
-    describe('SVGClear Component', () => {
+    describe('SVGClear component', () => {
         describe('Default props', () => {
             it('renders without crashing', () => {
                 const div = document.createElement('div');
@@ -62,7 +60,7 @@ describe('SVGs', () => {
         });
     });
 
-    describe('SVGCopy Component', () => {
+    describe('SVGCopy component', () => {
         describe('Default props', () => {
             it('renders without crashing', () => {
                 const div = document.createElement('div');
@@ -106,7 +104,7 @@ describe('SVGs', () => {
         });
     });
 
-    describe('SVGRedo Component', () => {
+    describe('SVGRedo component', () => {
         describe('Default props', () => {
             it('renders without crashing', () => {
                 const div = document.createElement('div');
@@ -150,7 +148,7 @@ describe('SVGs', () => {
         });
     });
 
-    describe('SVGReset Component', () => {
+    describe('SVGReset component', () => {
         describe('Default props', () => {
             it('renders without crashing', () => {
                 const div = document.createElement('div');
@@ -194,7 +192,7 @@ describe('SVGs', () => {
         });
     });
 
-    describe('SVGUndo Component', () => {
+    describe('SVGUndo component', () => {
         describe('Default props', () => {
             it('renders without crashing', () => {
                 const div = document.createElement('div');

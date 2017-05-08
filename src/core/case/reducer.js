@@ -8,6 +8,9 @@ export const initialCaseState = {
 
 export function caseReducer(state = initialCaseState, { payload, type }) {
     switch (type) {
+        case actionTypes.RESET_TEXT:
+            return initialCaseState;
+
         case actionTypes.SET_CAMEL_CASE:
         case actionTypes.SET_CONSTANT_CASE:
         case actionTypes.SET_DOT_CASE:

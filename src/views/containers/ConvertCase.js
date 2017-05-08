@@ -12,7 +12,7 @@ import { caseSelectors } from '../../core/case';
 
 import { TextInfo } from '../components';
 
-import { TextAreaFormContainer } from './index';
+import TextAreaFormContainer from './TextAreaForm';
 
 const propTypes = {
     canRedo: PropTypes.bool.isRequired,

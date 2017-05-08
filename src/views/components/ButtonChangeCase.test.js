@@ -4,11 +4,11 @@ import sinon from 'sinon';
 
 import { CASES } from '../../core/constants';
 
-import { ButtonChangeCase } from './index';
+import ButtonChangeCase from './ButtonChangeCase';
 
 const changeCase = require('change-case');
 
-describe('ButtonChangeCase Component', () => {
+describe('ButtonChangeCase component', () => {
     let defaultProps;
 
     beforeEach(() => {

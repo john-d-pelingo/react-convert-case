@@ -1,3 +1,4 @@
+export const RESET_TEXT = 'RESET_TEXT';
 export const SET_CAMEL_CASE = 'SET_CAMEL_CASE';
 export const SET_CONSTANT_CASE = 'SET_CONSTANT_CASE';
 export const SET_DOT_CASE = 'SET_DOT_CASE';

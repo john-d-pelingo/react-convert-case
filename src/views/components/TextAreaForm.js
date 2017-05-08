@@ -7,15 +7,13 @@ import shortid from 'shortid';
 
 import { CASES } from '../../core/constants';
 
-import {
-    ButtonChangeCase,
-    ButtonSubmit,
-    SVGClear,
-    SVGCopy,
-    SVGRedo,
-    SVGReset,
-    SVGUndo
-} from './index';
+import ButtonChangeCase from './ButtonChangeCase';
+import ButtonSubmit from './ButtonSubmit';
+import SVGClear from './SVGClear';
+import SVGCopy from './SVGCopy';
+import SVGRedo from './SVGRedo';
+import SVGReset from './SVGReset';
+import SVGUndo from './SVGUndo';
 
 const changeCase = require('change-case');
 

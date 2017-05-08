@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { TextInfo } from './index';
+import TextInfo from './TextInfo';
 
-describe('TextInfo Component', () => {
+describe('TextInfo component', () => {
     let defaultProps;
 
     beforeEach(() => {

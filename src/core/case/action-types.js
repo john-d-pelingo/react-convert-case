@@ -1,4 +1,5 @@
 export {
+    RESET_TEXT,
     SET_CAMEL_CASE,
     SET_CONSTANT_CASE,
     SET_DOT_CASE,

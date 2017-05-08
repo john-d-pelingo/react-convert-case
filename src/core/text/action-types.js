@@ -1,4 +1,5 @@
 export {
+    RESET_TEXT,
     SET_CAMEL_CASE,
     SET_CONSTANT_CASE,
     SET_DOT_CASE,
@@ -20,5 +21,4 @@ export {
 export const CLEAR_TEXT = 'CLEAR_TEXT';
 export const CLEAR_HISTORY = 'CLEAR_HISTORY';
 export const COPY_TEXT = 'COPY_TEXT';
-export const RESET_TEXT = 'RESET_TEXT';
 export const UPDATE_CURRENT_TEXT = 'UPDATE_CURRENT_TEXT';
