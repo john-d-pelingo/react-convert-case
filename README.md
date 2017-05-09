@@ -130,9 +130,9 @@ feature. However we understand that this tool wouldn’t be useful if you couldn
   - [ ] Reset
   - [ ] Undo
 - [ ] Complete tests for:
-  - [ ] Redux Logic
+  - [x] Redux Logic (except selectors since we don't have memoized selectors)
     - [x] Reducers
-    - [ ] Complex Selectors
+    - [ ] Actions
   - [ ] Containers
   - [x] Components (except TextAreaForm)
 - [ ] Add snapshot testing.  
