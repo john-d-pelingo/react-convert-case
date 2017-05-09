@@ -30,12 +30,12 @@ export function getPresentCurrentTextWordCount(state) {
     return countWords(getPresentCurrentText(state));
 }
 
-export function getPresentIntialText(state) {
+export function getPresentInitialText(state) {
     return getPresentText(state).initial;
 }
 
-export function getPresentIntialTextCount(state) {
-    return getPresentIntialText(state).length;
+export function getPresentInitialTextCount(state) {
+    return getPresentInitialText(state).length;
 }
 
 export function getPresentLastCasedText(state) {

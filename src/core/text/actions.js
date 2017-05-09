@@ -35,160 +35,160 @@ export function resetText() {
     };
 }
 
-export function setCamelCase(newCase, newText) {
+export function setCamelCase(newText) {
     return {
         type: actionTypes.SET_CAMEL_CASE,
         payload: {
-            newCase,
+            newCase: CASES.CAMEL.name,
             newText
         }
     };
 }
 
-export function setConstantCase(newCase, newText) {
+export function setConstantCase(newText) {
     return {
         type: actionTypes.SET_CONSTANT_CASE,
         payload: {
-            newCase,
+            newCase: CASES.CONSTANT.name,
             newText
         }
     };
 }
 
-export function setDotCase(newCase, newText) {
+export function setDotCase(newText) {
     return {
         type: actionTypes.SET_DOT_CASE,
         payload: {
-            newCase,
+            newCase: CASES.DOT.name,
             newText
         }
     };
 }
 
-export function setHeaderCase(newCase, newText) {
+export function setHeaderCase(newText) {
     return {
         type: actionTypes.SET_HEADER_CASE,
         payload: {
-            newCase,
+            newCase: CASES.HEADER.name,
             newText
         }
     };
 }
 
-export function setLowerCase(newCase, newText) {
+export function setLowerCase(newText) {
     return {
         type: actionTypes.SET_LOWER_CASE,
         payload: {
-            newCase,
+            newCase: CASES.LOWER.name,
             newText
         }
     };
 }
 
-export function setLowerFirstCase(newCase, newText) {
+export function setLowerFirstCase(newText) {
     return {
         type: actionTypes.SET_LOWER_FIRST_CASE,
         payload: {
-            newCase,
+            newCase: CASES.LOWER_FIRST.name,
             newText
         }
     };
 }
 
-export function setNoCase(newCase, newText) {
+export function setNoCase(newText) {
     return {
         type: actionTypes.SET_NO_CASE,
         payload: {
-            newCase,
+            newCase: CASES.NO.name,
             newText
         }
     };
 }
 
-export function setParamCase(newCase, newText) {
+export function setParamCase(newText) {
     return {
         type: actionTypes.SET_PARAM_CASE,
         payload: {
-            newCase,
+            newCase: CASES.PARAM.name,
             newText
         }
     };
 }
 
-export function setPascalCase(newCase, newText) {
+export function setPascalCase(newText) {
     return {
         type: actionTypes.SET_PASCAL_CASE,
         payload: {
-            newCase,
+            newCase: CASES.PASCAL.name,
             newText
         }
     };
 }
-export function setPathCase(newCase, newText) {
+export function setPathCase(newText) {
     return {
         type: actionTypes.SET_PATH_CASE,
         payload: {
-            newCase,
+            newCase: CASES.PATH.name,
             newText
         }
     };
 }
 
-export function setSentenceCase(newCase, newText) {
+export function setSentenceCase(newText) {
     return {
         type: actionTypes.SET_SENTENCE_CASE,
         payload: {
-            newCase,
+            newCase: CASES.SENTENCE.name,
             newText
         }
     };
 }
 
-export function setSnakeCase(newCase, newText) {
+export function setSnakeCase(newText) {
     return {
         type: actionTypes.SET_SNAKE_CASE,
         payload: {
-            newCase,
+            newCase: CASES.SNAKE.name,
             newText
         }
     };
 }
 
-export function setSwapCase(newCase, newText) {
+export function setSwapCase(newText) {
     return {
         type: actionTypes.SET_SWAP_CASE,
         payload: {
-            newCase,
+            newCase: CASES.SWAP.name,
             newText
         }
     };
 }
 
-export function setTitleCase(newCase, newText) {
+export function setTitleCase(newText) {
     return {
         type: actionTypes.SET_TITLE_CASE,
         payload: {
-            newCase,
+            newCase: CASES.TITLE.name,
             newText
         }
     };
 }
 
-export function setUpperCase(newCase, newText) {
+export function setUpperCase(newText) {
     return {
         type: actionTypes.SET_UPPER_CASE,
         payload: {
-            newCase,
+            newCase: CASES.UPPER.name,
             newText
         }
     };
 }
 
-export function setUpperFirstCase(newCase, newText) {
+export function setUpperFirstCase(newText) {
     return {
         type: actionTypes.SET_UPPER_FIRST_CASE,
         payload: {
-            newCase,
+            newCase: CASES.UPPER_FIRST.name,
             newText
         }
     };
@@ -231,52 +231,52 @@ export function setCase(newCase, newText) {
 
             switch (newCase) {
                 case CASES.CAMEL.name:
-                    return dispatch(setCamelCase(newCase, newText));
+                    return dispatch(setCamelCase(newText));
 
                 case CASES.CONSTANT.name:
-                    return dispatch(setConstantCase(newCase, newText));
+                    return dispatch(setConstantCase(newText));
 
                 case CASES.DOT.name:
-                    return dispatch(setDotCase(newCase, newText));
+                    return dispatch(setDotCase(newText));
 
                 case CASES.HEADER.name:
-                    return dispatch(setHeaderCase(newCase, newText));
+                    return dispatch(setHeaderCase(newText));
 
                 case CASES.LOWER.name:
-                    return dispatch(setLowerCase(newCase, newText));
+                    return dispatch(setLowerCase(newText));
 
                 case CASES.LOWER_FIRST.name:
-                    return dispatch(setLowerFirstCase(newCase, newText));
+                    return dispatch(setLowerFirstCase(newText));
 
                 case CASES.NO.name:
-                    return dispatch(setNoCase(newCase, newText));
+                    return dispatch(setNoCase(newText));
 
                 case CASES.PARAM.name:
-                    return dispatch(setParamCase(newCase, newText));
+                    return dispatch(setParamCase(newText));
 
                 case CASES.PASCAL.name:
-                    return dispatch(setPascalCase(newCase, newText));
+                    return dispatch(setPascalCase(newText));
 
                 case CASES.PATH.name:
-                    return dispatch(setPathCase(newCase, newText));
+                    return dispatch(setPathCase(newText));
 
                 case CASES.SENTENCE.name:
-                    return dispatch(setSentenceCase(newCase, newText));
+                    return dispatch(setSentenceCase(newText));
 
                 case CASES.SNAKE.name:
-                    return dispatch(setSnakeCase(newCase, newText));
+                    return dispatch(setSnakeCase(newText));
 
                 case CASES.SWAP.name:
-                    return dispatch(setSwapCase(newCase, newText));
+                    return dispatch(setSwapCase(newText));
 
                 case CASES.TITLE.name:
-                    return dispatch(setTitleCase(newCase, newText));
+                    return dispatch(setTitleCase(newText));
 
                 case CASES.UPPER.name:
-                    return dispatch(setUpperCase(newCase, newText));
+                    return dispatch(setUpperCase(newText));
 
                 case CASES.UPPER_FIRST.name:
-                    return dispatch(setUpperFirstCase(newCase, newText));
+                    return dispatch(setUpperFirstCase(newText));
 
                 default:
             }

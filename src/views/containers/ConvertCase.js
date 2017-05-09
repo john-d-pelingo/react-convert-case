@@ -124,8 +124,8 @@ const mapStateToProps = createSelector(
     textSelectors.getPresentCurrentText,
     textSelectors.getPresentCurrentTextCharacterCount,
     textSelectors.getPresentCurrentTextWordCount,
-    textSelectors.getPresentIntialText,
-    textSelectors.getPresentIntialTextCount,
+    textSelectors.getPresentInitialText,
+    textSelectors.getPresentInitialTextCount,
     (futureTextIsEmpty, pastTextIsEmpty, lastCasePressed, presentCurrentText, presentCurrentTextCharacterCount, presentCurrentTextWordCount, presentInitialText, presentInitialTextCount) => ({
         canRedo: !futureTextIsEmpty,
         canUndo: !pastTextIsEmpty,
