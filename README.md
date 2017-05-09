@@ -132,7 +132,7 @@ feature. However we understand that this tool wouldn’t be useful if you couldn
 - [ ] Complete tests for:
   - [x] Redux Logic (except selectors since we don't have memoized selectors)
     - [x] Reducers
-    - [ ] Actions
+    - [x] Actions
   - [ ] Containers
   - [x] Components (except TextAreaForm)
 - [ ] Add snapshot testing.  
