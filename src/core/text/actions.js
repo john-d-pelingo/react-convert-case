@@ -281,6 +281,6 @@ export function setCase(newCase, newText) {
                 default:
             }
         }
-        return 1;
+        return {};
     };
 }

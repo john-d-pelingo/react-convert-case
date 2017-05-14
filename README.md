@@ -6,7 +6,6 @@ Try the demo at [https://john-d-pelingo.github.io/react-convert-case/](https://j
 
 ## Application Stack
 
-- [x] create-react-app
 - [x] prop-types
 - [x] react
 - [x] react-dom
@@ -31,6 +30,8 @@ Try the demo at [https://john-d-pelingo.github.io/react-convert-case/](https://j
 
 - [x] enzyme
 - [x] jest
+- [x] redux-mock-store
+- [x] sinon
 
 ## Utilities
 
@@ -121,21 +122,6 @@ feature. However we understand that this tool wouldn’t be useful if you couldn
 - [x] Enable tab character insertion inside textarea. 
 - [x] Add clear text.
 - [x] Add reset text.
-- [ ] Add save data to and load from `localStorage` or browser cookies. 
-- [ ] Add download text capability.
-- [ ] Add shortcuts for:
-  - [ ] Clear
-  - [ ] Copy
-  - [ ] Redo
-  - [ ] Reset
-  - [ ] Undo
-- [ ] Complete tests for:
-  - [x] Redux Logic (except selectors since we don't have memoized selectors)
-    - [x] Reducers
-    - [x] Actions
-  - [ ] Containers
-  - [x] Components (except TextAreaForm)
-- [ ] Add snapshot testing.  
 - [ ] Wait for this [issue](https://github.com/erikras/redux-form/issues/860) to be solved.
 
 ## License

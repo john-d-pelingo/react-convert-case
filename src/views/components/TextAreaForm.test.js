@@ -12,6 +12,7 @@ describe('TextAreaForm component', () => {
             canUndo: false,
             characterCount: 0,
             currentText: '',
+            lastCasedText: '',
             initialText: '',
             initialTextCount: 0,
             submitting: false,

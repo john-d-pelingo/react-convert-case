@@ -2,14 +2,14 @@
 
 import * as actionTypes from './action-types';
 
-export const initialCaseState = {
+export const caseState = {
     last: null
 };
 
-export function caseReducer(state = initialCaseState, { payload, type }) {
+export function caseReducer(state = caseState, { payload, type }) {
     switch (type) {
         case actionTypes.RESET_TEXT:
-            return initialCaseState;
+            return caseState;
 
         case actionTypes.SET_CAMEL_CASE:
         case actionTypes.SET_CONSTANT_CASE:

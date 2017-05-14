@@ -24,6 +24,7 @@ const propTypes = {
     currentText: PropTypes.string.isRequired,
     initialText: PropTypes.string.isRequired,
     initialTextCount: PropTypes.number.isRequired,
+    lastCasedText: PropTypes.string.isRequired,
     lastCasePressed: PropTypes.string,
     submitting: PropTypes.bool.isRequired,
     wordCount: PropTypes.number.isRequired,
@@ -81,11 +82,11 @@ class TextAreaForm extends React.Component {
     }
 
     render() {
-        const { canRedo, canUndo, characterCount, currentText, initialText, initialTextCount, lastCasePressed, submitting, wordCount, handleSubmit, handleTextAreaBlur, handleTextAreaChange, handleTextAreaFormSubmit } = this.props;
+        const { canRedo, canUndo, characterCount, currentText, initialText, initialTextCount, lastCasedText, lastCasePressed, submitting, wordCount, handleSubmit, handleTextAreaBlur, handleTextAreaChange, handleTextAreaFormSubmit } = this.props;
 
         const renderButtonChangeCases = () => {
             return Object.keys(CASES).map(theCase => {
-                const disabled = currentText === changeCase[CASES[theCase].functionName](currentText) || lastCasePressed === theCase || submitting || wordCount === 0;
+                const disabled = (currentText === changeCase[CASES[theCase].functionName](currentText)) || ((currentText.trim() === '' || currentText === lastCasedText) && (lastCasePressed === theCase || submitting || wordCount === 0));
                 return (
                     <ButtonChangeCase
                         buttonCase={ theCase }

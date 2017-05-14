@@ -23,6 +23,7 @@ const propTypes = {
     presentCurrentTextWordCount: PropTypes.number.isRequired,
     presentInitialText: PropTypes.string.isRequired,
     presentInitialTextCount: PropTypes.number.isRequired,
+    presentLastCasedText: PropTypes.string.isRequired,
 
     clearHistoryText: PropTypes.func.isRequired,
     copyText: PropTypes.func.isRequired,
@@ -87,7 +88,7 @@ export class ConvertCase extends React.Component {
     }
 
     render() {
-        const { canRedo, canUndo, lastCasePressed, presentCurrentText, presentCurrentTextCharacterCount, presentCurrentTextWordCount, presentInitialText, presentInitialTextCount } = this.props;
+        const { canRedo, canUndo, lastCasePressed, presentCurrentText, presentCurrentTextCharacterCount, presentCurrentTextWordCount, presentInitialText, presentInitialTextCount, presentLastCasedText } = this.props;
         const initialValues = {
             text: presentCurrentText
         };
@@ -102,6 +103,7 @@ export class ConvertCase extends React.Component {
                     currentText={ presentCurrentText }
                     initialText={ presentInitialText }
                     initialTextCount={ presentInitialTextCount }
+                    lastCasedText={ presentLastCasedText }
                     lastCasePressed={ lastCasePressed }
                     wordCount={ presentCurrentTextWordCount }
                     handleTextAreaBlur={ this.handleTextAreaBlur }
@@ -126,7 +128,8 @@ const mapStateToProps = createSelector(
     textSelectors.getPresentCurrentTextWordCount,
     textSelectors.getPresentInitialText,
     textSelectors.getPresentInitialTextCount,
-    (futureTextIsEmpty, pastTextIsEmpty, lastCasePressed, presentCurrentText, presentCurrentTextCharacterCount, presentCurrentTextWordCount, presentInitialText, presentInitialTextCount) => ({
+    textSelectors.getPresentLastCasedText,
+    (futureTextIsEmpty, pastTextIsEmpty, lastCasePressed, presentCurrentText, presentCurrentTextCharacterCount, presentCurrentTextWordCount, presentInitialText, presentInitialTextCount, presentLastCasedText) => ({
         canRedo: !futureTextIsEmpty,
         canUndo: !pastTextIsEmpty,
         lastCasePressed,
@@ -134,7 +137,8 @@ const mapStateToProps = createSelector(
         presentCurrentTextCharacterCount,
         presentCurrentTextWordCount,
         presentInitialText,
-        presentInitialTextCount
+        presentInitialTextCount,
+        presentLastCasedText
     })
 );
 

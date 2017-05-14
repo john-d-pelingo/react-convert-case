@@ -47,6 +47,7 @@ body {
 }
 
 .button-change-case[disabled], .button-change-case:disabled {
+    cursor: default;
     opacity: .4;
 }
 

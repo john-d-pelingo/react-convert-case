@@ -40,7 +40,7 @@ describe('Text reducer', () => {
     });
 
     describe('CLEAR_TEXT', () => {
-        it('should return correct state', () => {
+        it('should clear all texts but copied', () => {
             const nextState = textReducer(initialState, {
                 type: CLEAR_TEXT,
                 payload: {}
@@ -54,7 +54,7 @@ describe('Text reducer', () => {
     });
 
     describe('COPY_TEXT', () => {
-        it('should return correct state', () => {
+        it('should copy the correct text', () => {
             const nextState = textReducer(initialState, {
                 type: COPY_TEXT,
                 payload: {
@@ -70,7 +70,7 @@ describe('Text reducer', () => {
     });
 
     describe('RESET_TEXT', () => {
-        it('should return correct state', () => {
+        it('should reset all texts', () => {
             const nextState = textReducer(initialState, {
                 type: RESET_TEXT,
                 payload: {}
@@ -84,7 +84,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_CAMEL_CASE', () => {
-        it('should return correct state', () => {
+        it('should return camel cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_CAMEL_CASE,
                 payload: {
@@ -101,7 +101,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_CONSTANT_CASE', () => {
-        it('should return correct state', () => {
+        it('should return constant cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_CONSTANT_CASE,
                 payload: {
@@ -118,7 +118,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_DOT_CASE', () => {
-        it('should return correct state', () => {
+        it('should return dot cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_DOT_CASE,
                 payload: {
@@ -135,7 +135,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_HEADER_CASE', () => {
-        it('should return correct state', () => {
+        it('should return header cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_HEADER_CASE,
                 payload: {
@@ -152,7 +152,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_LOWER_CASE', () => {
-        it('should return correct state', () => {
+        it('should return lower cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_LOWER_CASE,
                 payload: {
@@ -169,7 +169,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_LOWER_FIRST_CASE', () => {
-        it('should return correct state', () => {
+        it('should return lower first cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_LOWER_FIRST_CASE,
                 payload: {
@@ -186,7 +186,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_NO_CASE', () => {
-        it('should return correct state', () => {
+        it('should return no cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_NO_CASE,
                 payload: {
@@ -203,7 +203,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_PARAM_CASE', () => {
-        it('should return correct state', () => {
+        it('should return param cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_PARAM_CASE,
                 payload: {
@@ -220,7 +220,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_PASCAL_CASE', () => {
-        it('should return correct state', () => {
+        it('should return pascal cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_PASCAL_CASE,
                 payload: {
@@ -237,7 +237,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_PATH_CASE', () => {
-        it('should return correct state', () => {
+        it('should return path cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_PATH_CASE,
                 payload: {
@@ -254,7 +254,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_SENTENCE_CASE', () => {
-        it('should return correct state', () => {
+        it('should return sentence cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_SENTENCE_CASE,
                 payload: {
@@ -271,7 +271,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_SNAKE_CASE', () => {
-        it('should return correct state', () => {
+        it('should return snake cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_SNAKE_CASE,
                 payload: {
@@ -288,7 +288,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_SWAP_CASE', () => {
-        it('should return correct state', () => {
+        it('should return swap cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_SWAP_CASE,
                 payload: {
@@ -305,7 +305,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_TITLE_CASE', () => {
-        it('should return correct state', () => {
+        it('should return title cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_TITLE_CASE,
                 payload: {
@@ -322,7 +322,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_UPPER_CASE', () => {
-        it('should return correct state', () => {
+        it('should return upper cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_UPPER_CASE,
                 payload: {
@@ -339,7 +339,7 @@ describe('Text reducer', () => {
     });
 
     describe('SET_UPPER_FIRST_CASE', () => {
-        it('should return correct state', () => {
+        it('should return upper first cased current and last cased text', () => {
             const nextState = textReducer(initialState, {
                 type: SET_UPPER_FIRST_CASE,
                 payload: {
@@ -356,7 +356,7 @@ describe('Text reducer', () => {
     });
 
     describe('UPDATE_CURRENT_TEXT', () => {
-        it('should return correct state', () => {
+        it('should update the current text', () => {
             const nextState = textReducer(initialState, {
                 type: UPDATE_CURRENT_TEXT,
                 payload: {

@@ -95,11 +95,14 @@ CASES.UPPER_FIRST.action = setUpperFirstCase;
 const casesKeys = Object.keys(CASES);
 
 describe('Text actions', () => {
+    let ø;
     let initialState;
     let newText;
     let store;
 
     beforeEach(() => {
+        ø = Object.create(null);
+
         initialState = {
             case: {
                 last: 'NO'
@@ -122,128 +125,157 @@ describe('Text actions', () => {
 
     describe('clearHistory', () => {
         it('should create CLEAR_HISTORY', () => {
-            const expectedPayload = {
-                type: CLEAR_HISTORY
-            };
+            const actions = [
+                { type: CLEAR_HISTORY }
+            ];
 
             store.dispatch(clearHistory());
-            const actions = store.getActions();
-            expect(actions).toEqual([expectedPayload]);
+            const nextActions = store.getActions();
+            expect(nextActions).toEqual(actions);
         });
     });
 
     describe('clearText', () => {
         it('should create CLEAR_TEXT', () => {
-            const expectedPayload = {
-                type: CLEAR_TEXT
-            };
+            const actions = [
+                { type: CLEAR_TEXT }
+            ];
 
             store.dispatch(clearText());
-            const actions = store.getActions();
-            expect(actions).toEqual([expectedPayload]);
+            const nextActions = store.getActions();
+            expect(nextActions).toEqual(actions);
         });
     });
 
     describe('copyText', () => {
         it('should create COPY_TEXT', () => {
-            const expectedPayload = {
-                type: COPY_TEXT,
-                payload: {
-                    newText
+            const actions = [
+                {
+                    type: COPY_TEXT,
+                    payload: {
+                        newText
+                    }
                 }
-            };
+            ];
 
-            store.dispatch(copyText.call(null, newText));
-            const actions = store.getActions();
-            expect(actions).toEqual([expectedPayload]);
+            store.dispatch(copyText.call(ø, newText));
+            const nextActions = store.getActions();
+            expect(nextActions).toEqual(actions);
         });
     });
 
     describe('resetText', () => {
         it('should create RESET_TEXT', () => {
-            const expectedPayload = {
-                type: RESET_TEXT
-            };
+            const actions = [
+                { type: RESET_TEXT }
+            ];
 
             store.dispatch(resetText());
-            const actions = store.getActions();
-            expect(actions).toEqual([expectedPayload]);
+            const nextActions = store.getActions();
+            expect(nextActions).toEqual(actions);
         });
     });
 
     for (let ii = 0; ii < casesKeys.length; ii++) {
         describe(CASES[casesKeys[ii]].action.name, () => {
             it(`should create ${ CASES[casesKeys[ii]].actionType }`, () => {
-                const expectedPayload = {
-                    type: CASES[casesKeys[ii]].actionType,
-                    payload: {
-                        newCase: CASES[casesKeys[ii]].name,
-                        newText
+                const actions = [
+                    {
+                        type: CASES[casesKeys[ii]].actionType,
+                        payload: {
+                            newCase: CASES[casesKeys[ii]].name,
+                            newText
+                        }
                     }
-                };
+                ];
 
-                store.dispatch(CASES[casesKeys[ii]].action.call(null, newText));
-                const actions = store.getActions();
-                expect(actions).toEqual([expectedPayload]);
+                store.dispatch(CASES[casesKeys[ii]].action.call(ø, newText));
+                const nextActions = store.getActions();
+                expect(nextActions).toEqual(actions);
             });
         });
     }
 
     describe('updateCurrentText', () => {
         it('should create RESET_TEXT', () => {
-            const expectedPayload = {
-                type: UPDATE_CURRENT_TEXT,
-                payload: {
-                    newText
+            const actions = [
+                {
+                    type: UPDATE_CURRENT_TEXT,
+                    payload: {
+                        newText
+                    }
                 }
-            };
+            ];
 
-            store.dispatch(updateCurrentText.call(null, newText));
-            const actions = store.getActions();
-            expect(actions).toEqual([expectedPayload]);
+            store.dispatch(updateCurrentText.call(ø, newText));
+            const nextActions = store.getActions();
+            expect(nextActions).toEqual(actions);
         });
     });
 
     describe('clearHistoryText', () => {
         it('should create CLEAR_TEXT and CLEAR_HISTORY', () => {
-            const expectedPayload = [
+            const actions = [
                 { type: CLEAR_TEXT },
                 { type: CLEAR_HISTORY }
             ];
 
             store.dispatch(clearHistoryText());
-            const actions = store.getActions();
-            expect(actions).toEqual([...expectedPayload]);
+            const nextActions = store.getActions();
+            expect(nextActions).toEqual(actions);
         });
     });
 
     describe('resetHistoryText', () => {
         it('should create RESET_TEXT and CLEAR_HISTORY', () => {
-            const expectedPayload = [
+            const actions = [
                 { type: RESET_TEXT },
                 { type: CLEAR_HISTORY }
             ];
 
             store.dispatch(resetHistoryText());
-            const actions = store.getActions();
-            expect(actions).toEqual([...expectedPayload]);
+            const nextActions = store.getActions();
+            expect(nextActions).toEqual(actions);
         });
     });
 
     describe('setCase', () => {
+        it('should not create any action', () => {
+            const newState = {
+                ...initialState,
+                text: {
+                    ...initialState.text,
+                    present: {
+                        ...initialState.text.present,
+                        current: 'i am no cased',
+                        lastCased: 'i am no cased'
+                    }
+                }
+            };
+            newText = 'i am no cased';
+            store = mockStore(newState);
+            const actions = [];
+
+            store.dispatch(setCase.call(ø, 'NO', newText));
+            const nextActions = store.getActions();
+            expect(nextActions).toEqual(actions);
+        });
+
         for (let ii = 0; ii < casesKeys.length; ii++) {
             it(`should create ${ CASES[casesKeys[ii]].actionType }`, () => {
-                const expectedPayload = {
-                    type: CASES[casesKeys[ii]].actionType,
-                    payload: {
-                        newCase: CASES[casesKeys[ii]].name,
-                        newText
+                const actions = [
+                    {
+                        type: CASES[casesKeys[ii]].actionType,
+                        payload: {
+                            newCase: CASES[casesKeys[ii]].name,
+                            newText
+                        }
                     }
-                };
+                ];
 
-                store.dispatch(setCase.call(null, CASES[casesKeys[ii]].name, newText));
-                const actions = store.getActions();
-                expect(actions).toEqual([expectedPayload]);
+                store.dispatch(setCase.call(ø, CASES[casesKeys[ii]].name, newText));
+                const nextActions = store.getActions();
+                expect(nextActions).toEqual(actions);
             });
         }
     });

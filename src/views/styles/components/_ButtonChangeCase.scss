@@ -18,6 +18,7 @@
 
     &[disabled],
     &:disabled {
+        cursor  : default;
         opacity : .4;
     }
 

@@ -1,6 +1,8 @@
+/* eslint-disable no-loop-func */
+
 import { CASES } from '../../core/constants';
 
-import { caseReducer } from './reducer';
+import { caseReducer, caseState } from './reducer';
 import {
     RESET_TEXT,
     SET_CAMEL_CASE,
@@ -41,21 +43,32 @@ CASES.UPPER_FIRST.actionType = SET_UPPER_FIRST_CASE;
 const casesKeys = Object.keys(CASES);
 
 describe('Case reducer', () => {
+    let initialState;
+
+    beforeEach(() => {
+        initialState = caseState;
+    });
+
     describe('RESET_TEXT', () => {
-        it('should return correct state', () => {
-            const nextState = caseReducer(null, {
+        it('should reset the last case', () => {
+            const state = {
+                ...initialState,
+                last: 'PATH'
+            };
+
+            const nextState = caseReducer(state, {
                 type: RESET_TEXT,
                 payload: {}
             });
 
-            expect(nextState.last).toBe(null);
+            expect(nextState).toEqual(initialState);
         });
     });
 
     for (let ii = 0; ii < casesKeys.length; ii++) {
         describe(CASES[casesKeys[ii]].actionType, () => {
-            it('should return correct state', () => {
-                const nextState = caseReducer(null, {
+            it(`should set the last case to ${ CASES[casesKeys[ii]].name }`, () => {
+                const nextState = caseReducer(initialState, {
                     type: CASES[casesKeys[ii]].actionType,
                     payload: {
                         newCase: CASES[casesKeys[ii]].name,

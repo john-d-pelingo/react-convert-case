@@ -36,7 +36,7 @@ describe('TextInfo component', () => {
     });
 
     describe('New props', () => {
-        it('should return the same character count and the same word count', () => {
+        it('should return the same prop values', () => {
             const newProps = {
                 ...defaultProps,
                 characterCount: 9001,
