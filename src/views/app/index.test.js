@@ -10,7 +10,7 @@ describe('App Main Container', () => {
             ReactDOM.render(<App />, div);
         });
 
-        it('should be selectable by class "app"', () => {
+        it('should be selectable by class ".app"', () => {
             expect(shallow(<App />).is('.app')).toBe(true);
         });
 

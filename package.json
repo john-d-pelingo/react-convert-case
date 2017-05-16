@@ -11,14 +11,15 @@
     "url": "https://github.com/john-d-pelingo/react-convert-case.git"
   },
   "scripts": {
-    "build": "run-s build:js",
+    "build": "npm run build:js",
     "build:css": "node-sass --output-style expanded --indent-width 4 --linefeed lf --include-path scss src/views/styles/style.scss src/views/styles/style.css",
     "build:js": "react-scripts build",
-    "clean": "del-cli build",
-    "deploy": "npm run build && gh-pages -d build",
+    "clean": "rimraf build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject",
     "lint": "eslint -c .eslintrc.yml *.js src",
     "prebuild": "run-s build:css clean lint test:deploy",
+    "predeploy": "npm run build",
     "start": "run-p watch:css start:js",
     "start:js": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
@@ -68,7 +69,6 @@
   },
   "devDependencies": {
     "cross-env": "4.0.0",
-    "del-cli": "0.2.1",
     "enzyme": "2.8.2",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "14.1.0",
@@ -82,6 +82,7 @@
     "react-scripts": "0.9.5",
     "react-test-renderer": "15.5.4",
     "redux-mock-store": "1.2.3",
+    "rimraf": "2.6.1",
     "sinon": "2.2.0"
   }
 }

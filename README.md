@@ -20,11 +20,11 @@ Try the demo at [https://john-d-pelingo.github.io/react-convert-case/](https://j
 ## Development Stack
 
 - [x] cross-env
-- [x] del-cli
 - [x] eslint
 - [x] gh-pages
 - [x] node-sass
 - [x] npm-run-all
+- [x] rim-raf
 
 ## Test Stack 
 
