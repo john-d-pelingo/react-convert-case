@@ -1,3 +1,9 @@
+[![travis-ci][travis-badge]][travis-url]
+[![circle-ci][circle-ci-badge]][circle-ci-url]
+[![appveyor-ci][appveyor-ci-badge]][appveyor-ci-url]
+[![dependency-ci][dependency-ci-badge]][dependency-ci-url]
+[![coveralls][coveralls-badge]][coveralls-url]
+
 # react-convert-case
 
 Convert strings between cases. Built with react, redux and friends. Bootstrapped with the help of Facebook's create-react-app.                     
@@ -14,15 +20,18 @@ Try the demo at [https://john-d-pelingo.github.io/react-convert-case/](https://j
 - [x] redux-form
 - [x] redux-thunk
 - [x] redux-undo
-- [x] redux-devtools-extension for Chrome
+- [x] redux-devtools-extension for Google Chrome
 - [x] reselect
 
 ## Development Stack
 
+- [x] coveralls
 - [x] cross-env
 - [x] eslint
+- [x] fs-extra
 - [x] gh-pages
 - [x] node-sass
+- [x] nodemon
 - [x] npm-run-all
 - [x] rimraf
 
@@ -127,3 +136,14 @@ feature. However we understand that this tool wouldn’t be useful if you couldn
 ## License
 
 [MIT](https://github.com/john-d-pelingo/react-convert-case/blob/master/LICENSE) &copy; 2017-present
+
+[travis-badge]: https://travis-ci.org/john-d-pelingo/react-convert-case.svg?branch=master
+[travis-url]: https://travis-ci.org/john-d-pelingo/react-convert-case
+[circle-ci-badge]: https://circleci.com/gh/john-d-pelingo/react-convert-case.svg?style=shield
+[circle-ci-url]: https://circleci.com/gh/john-d-pelingo/react-convert-case
+[appveyor-ci-badge]: https://ci.appveyor.com/api/projects/status/lot876i3vd1gysc3?svg=true
+[appveyor-ci-url]: https://ci.appveyor.com/project/john-d-pelingo/react-convert-case
+[dependency-ci-badge]: https://dependencyci.com/github/john-d-pelingo/react-convert-case/badge
+[dependency-ci-url]: https://dependencyci.com/github/john-d-pelingo/react-convert-case
+[coveralls-badge]: https://coveralls.io/repos/github/john-d-pelingo/react-convert-case/badge.svg
+[coveralls-url]: https://coveralls.io/github/john-d-pelingo/react-convert-case

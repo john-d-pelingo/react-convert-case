@@ -9,6 +9,8 @@ import { ConvertCaseContainer } from './views/containers';
 // Styles.
 import './views/styles/style.css';
 
+import registerServiceWorker from './registerServiceWorker';
+
 const store = configureStore();
 
 ReactDOM.render(
@@ -19,3 +21,5 @@ ReactDOM.render(
     </Provider>,
     document.getElementById('root')
 );
+
+registerServiceWorker();
