@@ -4,23 +4,23 @@ import { CASES } from '../../core/constants';
 
 import { caseReducer, caseState } from './reducer';
 import {
-    RESET_TEXT,
-    SET_CAMEL_CASE,
-    SET_CONSTANT_CASE,
-    SET_DOT_CASE,
-    SET_HEADER_CASE,
-    SET_LOWER_CASE,
-    SET_LOWER_FIRST_CASE,
-    SET_NO_CASE,
-    SET_PARAM_CASE,
-    SET_PASCAL_CASE,
-    SET_PATH_CASE,
-    SET_SENTENCE_CASE,
-    SET_SNAKE_CASE,
-    SET_SWAP_CASE,
-    SET_TITLE_CASE,
-    SET_UPPER_CASE,
-    SET_UPPER_FIRST_CASE
+  RESET_TEXT,
+  SET_CAMEL_CASE,
+  SET_CONSTANT_CASE,
+  SET_DOT_CASE,
+  SET_HEADER_CASE,
+  SET_LOWER_CASE,
+  SET_LOWER_FIRST_CASE,
+  SET_NO_CASE,
+  SET_PARAM_CASE,
+  SET_PASCAL_CASE,
+  SET_PATH_CASE,
+  SET_SENTENCE_CASE,
+  SET_SNAKE_CASE,
+  SET_SWAP_CASE,
+  SET_TITLE_CASE,
+  SET_UPPER_CASE,
+  SET_UPPER_FIRST_CASE
 } from './action-types';
 
 CASES.CAMEL.actionType = SET_CAMEL_CASE;
@@ -43,41 +43,41 @@ CASES.UPPER_FIRST.actionType = SET_UPPER_FIRST_CASE;
 const casesKeys = Object.keys(CASES);
 
 describe('Case reducer', () => {
-    let initialState;
+  let initialState;
 
-    beforeEach(() => {
-        initialState = caseState;
+  beforeEach(() => {
+    initialState = caseState;
+  });
+
+  describe('RESET_TEXT', () => {
+    it('should reset the last case', () => {
+      const state = {
+        ...initialState,
+        last: 'PATH'
+      };
+
+      const nextState = caseReducer(state, {
+        type: RESET_TEXT,
+        payload: {}
+      });
+
+      expect(nextState).toEqual(initialState);
     });
+  });
 
-    describe('RESET_TEXT', () => {
-        it('should reset the last case', () => {
-            const state = {
-                ...initialState,
-                last: 'PATH'
-            };
-
-            const nextState = caseReducer(state, {
-                type: RESET_TEXT,
-                payload: {}
-            });
-
-            expect(nextState).toEqual(initialState);
+  for (let ii = 0; ii < casesKeys.length; ii++) {
+    describe(CASES[casesKeys[ii]].actionType, () => {
+      it(`should set the last case to ${ CASES[casesKeys[ii]].name }`, () => {
+        const nextState = caseReducer(initialState, {
+          type: CASES[casesKeys[ii]].actionType,
+          payload: {
+            newCase: CASES[casesKeys[ii]].name,
+            newText: null
+          }
         });
+
+        expect(nextState.last).toBe(CASES[casesKeys[ii]].name);
+      });
     });
-
-    for (let ii = 0; ii < casesKeys.length; ii++) {
-        describe(CASES[casesKeys[ii]].actionType, () => {
-            it(`should set the last case to ${ CASES[casesKeys[ii]].name }`, () => {
-                const nextState = caseReducer(initialState, {
-                    type: CASES[casesKeys[ii]].actionType,
-                    payload: {
-                        newCase: CASES[casesKeys[ii]].name,
-                        newText: null
-                    }
-                });
-
-                expect(nextState.last).toBe(CASES[casesKeys[ii]].name);
-            });
-        });
-    }
+  }
 });

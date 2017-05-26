@@ -29,7 +29,8 @@
     "test": "react-scripts test --env=jsdom",
     "test:deploy": "cross-env CI=true react-scripts test --env=jsdom",
     "test:coverage": "cross-env CI=true react-scripts test --env=jsdom --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "watch:css": "nodemon -e scss -x \"npm run build:css\""
+    "watch:css": "nodemon -e scss -x \"npm run build:css\"",
+    "watch:lint": "esw -c .eslintrc.yml *.js src --color -w"
   },
   "keywords": [
     "change-case",
@@ -74,6 +75,7 @@
     "eslint-plugin-import": "2.3.0",
     "eslint-plugin-jsx-a11y": "5.0.3",
     "eslint-plugin-react": "7.0.1",
+    "eslint-watch": "3.1.0",
     "fs-extra": "3.0.1",
     "gh-pages": "1.0.0",
     "node-sass": "4.5.3",

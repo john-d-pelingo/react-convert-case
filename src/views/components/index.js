@@ -9,13 +9,13 @@ import TextAreaForm from './TextAreaForm';
 import TextInfo from './TextInfo';
 
 export {
-    ButtonChangeCase,
-    ButtonSubmit,
-    SVGClear,
-    SVGCopy,
-    SVGRedo,
-    SVGReset,
-    SVGUndo,
-    TextAreaForm,
-    TextInfo
+  ButtonChangeCase,
+  ButtonSubmit,
+  SVGClear,
+  SVGCopy,
+  SVGRedo,
+  SVGReset,
+  SVGUndo,
+  TextAreaForm,
+  TextInfo
 };

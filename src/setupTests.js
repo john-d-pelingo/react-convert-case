@@ -9,5 +9,5 @@ global.mount = mount;
 
 // Fail tests on any warning
 console.error = message => {
-    throw new Error(message);
+  throw new Error(message);
 };
