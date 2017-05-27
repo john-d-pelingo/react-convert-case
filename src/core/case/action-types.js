@@ -16,4 +16,4 @@ export {
   SET_TITLE_CASE,
   SET_UPPER_CASE,
   SET_UPPER_FIRST_CASE
-} from '../common-actions';
+} from 'core/common-actions';

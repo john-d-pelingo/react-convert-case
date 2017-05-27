@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 import shortid from 'shortid';
 
-import { CASES } from '../../core/constants';
+import { CASES } from 'core/constants';
 
 import ButtonChangeCase from './ButtonChangeCase';
 import ButtonSubmit from './ButtonSubmit';

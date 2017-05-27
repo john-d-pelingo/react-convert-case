@@ -22,7 +22,12 @@ globals:
   shallow: true
 
 rules:
+  # Project Specifics
+  import/extensions: 0
+  import/no-extraneous-dependencies: 0
+  import/no-unresolved: 0
 
+  # General
   array-bracket-spacing:
   - 0
   - always

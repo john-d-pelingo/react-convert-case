@@ -13,22 +13,22 @@
   "scripts": {
     "build": "run-s build:js",
     "build:coverage": "run-s build:js copy-circle-ci-yml",
-    "build:css": "node-sass --output-style expanded --indent-width 4 --linefeed lf --include-path scss src/views/styles/style.scss src/views/styles/style.css",
-    "build:js": "react-scripts build",
-    "clean": "rimraf build",
+    "build:css": "node-sass --output-style expanded --indent-width 4 --linefeed lf --include-path scss src/static/scss/style.scss src/static/scss/style.css",
+    "build:js": "cross-env NODE_PATH=src react-scripts build",
+    "clean": "rimraf build coverage",
     "copy-circle-ci-yml": "node scripts/copy-circle-ci-yml.js",
     "deploy": "gh-pages  -m 'Updates [ci skip]' -d build",
     "deploy:ready": "gh-pages  -m 'Updates [ci skip]' -d build",
-    "eject": "react-scripts eject",
+    "eject": "cross-env NODE_PATH=src react-scripts eject",
     "lint": "eslint -c .eslintrc.yml *.js src",
     "prebuild": "run-s build:css clean lint test:deploy",
     "prebuild:coverage": "run-s build:css clean lint test:coverage",
     "predeploy": "npm run build",
     "start": "run-p watch:css start:js",
-    "start:js": "react-scripts start",
-    "test": "react-scripts test --env=jsdom",
-    "test:deploy": "cross-env CI=true react-scripts test --env=jsdom",
-    "test:coverage": "cross-env CI=true react-scripts test --env=jsdom --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "start:js": "cross-env NODE_PATH=src react-scripts start",
+    "test": "cross-env NODE_PATH=src react-scripts test --env=jsdom",
+    "test:deploy": "cross-env NODE_PATH=src CI=true react-scripts test --env=jsdom",
+    "test:coverage": "cross-env NODE_PATH=src CI=true react-scripts test --env=jsdom --coverage --no-cache && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "watch:css": "nodemon -e scss -x \"npm run build:css\"",
     "watch:lint": "esw -c .eslintrc.yml *.js src --color -w"
   },
@@ -94,7 +94,6 @@
       "!src/core/*.js",
       "!src/core/**/index.js",
       "!src/views/**/index.js",
-      "!src/utils/index.js",
       "!<rootDir>/node_modules/"
     ]
   }

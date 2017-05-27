@@ -1,8 +1,8 @@
 import { reduxForm } from 'redux-form';
 
-import { FORMS } from '../../core/constants';
+import { FORMS } from 'core/constants';
 
-import { TextAreaForm } from '../components';
+import { TextAreaForm } from 'views/components';
 
 const TextAreaFormContainer = reduxForm({
   enableReinitialize: true,

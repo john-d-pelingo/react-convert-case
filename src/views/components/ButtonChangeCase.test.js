@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import sinon from 'sinon';
 
-import { CASES } from '../../core/constants';
+import { CASES } from 'core/constants';
 
 import ButtonChangeCase from './ButtonChangeCase';
 

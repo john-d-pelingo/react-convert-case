@@ -1,6 +1,6 @@
 /* eslint-disable no-loop-func */
 
-import { CASES } from '../../core/constants';
+import { CASES } from 'core/constants';
 
 import { caseReducer, caseState } from './reducer';
 import {

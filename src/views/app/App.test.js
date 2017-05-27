@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './index';
+import App from './App';
 
 describe('App Main Container', () => {
   describe('Default suite', () => {

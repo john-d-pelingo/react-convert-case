@@ -1,4 +1,4 @@
-import { CASES } from '../../core/constants';
+import { CASES } from 'core/constants';
 
 import { textReducer } from './reducer';
 import {

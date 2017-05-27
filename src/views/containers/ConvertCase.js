@@ -7,10 +7,10 @@ import { ActionCreators as UndoActionCreators } from 'redux-undo';
 import { createSelector } from 'reselect';
 import copy from 'copy-to-clipboard';
 
-import { textActions, textSelectors } from '../../core/text';
-import { caseSelectors } from '../../core/case';
+import { textActions, textSelectors } from 'core/text';
+import { caseSelectors } from 'core/case';
 
-import { TextInfo } from '../components';
+import { TextInfo } from 'views/components';
 
 import TextAreaFormContainer from './TextAreaForm';
 

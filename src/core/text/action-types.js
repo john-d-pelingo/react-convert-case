@@ -16,7 +16,7 @@ export {
   SET_TITLE_CASE,
   SET_UPPER_CASE,
   SET_UPPER_FIRST_CASE
-} from '../common-actions';
+} from 'core/common-actions';
 
 export const CLEAR_TEXT = 'CLEAR_TEXT';
 export const CLEAR_HISTORY = 'CLEAR_HISTORY';

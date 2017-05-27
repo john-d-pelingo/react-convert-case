@@ -3,7 +3,7 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { CASES } from '../../core/constants';
+import { CASES } from 'core/constants';
 
 import {
   clearHistory,

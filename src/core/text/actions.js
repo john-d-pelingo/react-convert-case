@@ -1,7 +1,7 @@
 /* eslint-disable complexity */
 
-import { CASES } from '../constants';
-import { caseSelectors } from '../case';
+import { CASES } from 'core/constants';
+import { caseSelectors } from 'core/case';
 
 import * as actionTypes from './action-types';
 import * as textSelectors from './selectors';
