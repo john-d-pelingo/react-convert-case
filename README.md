@@ -146,7 +146,7 @@ feature. However we understand that this tool wouldn’t be useful if you couldn
 [appveyor-ci-url]: https://ci.appveyor.com/project/john-d-pelingo/react-convert-case
 [dependency-ci-badge]: https://dependencyci.com/github/john-d-pelingo/react-convert-case/badge
 [dependency-ci-url]: https://dependencyci.com/github/john-d-pelingo/react-convert-case
-[coveralls-badge]: https://coveralls.io/repos/github/john-d-pelingo/react-convert-case/badge.svg
-[coveralls-url]: https://coveralls.io/github/john-d-pelingo/react-convert-case
+[coveralls-badge]: https://coveralls.io/repos/github/john-d-pelingo/react-convert-case/badge.svg?branch=master
+[coveralls-url]: https://coveralls.io/github/john-d-pelingo/react-convert-case?branch=master
 [mit-license-badge]: https://img.shields.io/github/license/mashape/apistatus.svg
 [mit-license-url]: https://github.com/john-d-pelingo/react-convert-case/blob/master/LICENSE
