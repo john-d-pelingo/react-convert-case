@@ -80,4 +80,15 @@ describe('Case reducer', () => {
       });
     });
   }
+
+  describe('unknown action', () => {
+    it('should return the same state', () => {
+      const nextState = caseReducer(undefined, {
+        type: 'MAKE_COFFEE',
+        payload: {}
+      });
+
+      expect(nextState).toEqual(initialState);
+    });
+  });
 });

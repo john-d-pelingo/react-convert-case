@@ -278,5 +278,13 @@ describe('Text actions', () => {
         expect(nextActions).toEqual(actions);
       });
     }
+
+    it('should not create any action', () => {
+      const actions = [];
+
+      store.dispatch(setCase.call(ø, undefined, newText));
+      const nextActions = store.getActions();
+      expect(nextActions).toEqual(actions);
+    });
   });
 });

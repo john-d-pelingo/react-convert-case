@@ -1,3 +1,5 @@
+import { countWords } from 'core/utils';
+
 export function getText(state) {
   return state.text;
 }
@@ -48,17 +50,4 @@ export function getFutureText(state) {
 
 export function isFutureTextEmpty(state) {
   return getFutureText(state).length === 0;
-}
-
-function countWords(s) {
-  if (!s.trim()) return 0;
-
-  // const s1 = s.replace(/(^\s*)|(\s*$)/gi, ''); // Exclude start and end white-space.
-  // const s2 = s1.replace(/[ ]{2,}/gi, ' '); // 2 or more space to 1.
-  // // eslint-disable-next-line quotes
-  // const s3 = s2.replace(/\n /, "\n"); // Exclude newline with a start spacing.
-  // return s3.split(' ').length;
-
-  const regex = /\s+/gi;
-  return s.trim().replace(regex, ' ').split(' ').length;
 }

@@ -90,37 +90,39 @@ describe('ButtonChangeCase component', () => {
   });
 
   describe('Simulations', () => {
-    it('shouldn\'t submit the form when button is disabled', () => {
-      const onFormSubmit = sinon.spy();
+    describe('#click', () => {
+      it('shouldn\'t submit the form when button is disabled', () => {
+        const onFormSubmit = sinon.spy();
 
-      const wrapper = mount(
-        <form onSubmit={ onFormSubmit }>
-          <ButtonChangeCase { ...defaultProps } />
-        </form>
-      );
+        const wrapper = mount(
+          <form onSubmit={ onFormSubmit }>
+            <ButtonChangeCase { ...defaultProps } />
+          </form>
+        );
 
-      wrapper.find('button').get(0).click();
+        wrapper.find('button').get(0).click();
 
-      expect(onFormSubmit).toHaveProperty('callCount', 0);
-    });
+        expect(onFormSubmit).toHaveProperty('callCount', 0);
+      });
 
-    it('should submit the form when button is enabled', () => {
-      const onFormSubmit = sinon.spy();
+      it('should submit the form when button is enabled', () => {
+        const onFormSubmit = sinon.spy();
 
-      const newProps = {
-        ...defaultProps,
-        disabled: false
-      };
+        const newProps = {
+          ...defaultProps,
+          disabled: false
+        };
 
-      const wrapper = mount(
-        <form onSubmit={ onFormSubmit }>
-          <ButtonChangeCase { ...newProps } />
-        </form>
-      );
+        const wrapper = mount(
+          <form onSubmit={ onFormSubmit }>
+            <ButtonChangeCase { ...newProps } />
+          </form>
+        );
 
-      wrapper.find('button').get(0).click();
+        wrapper.find('button').get(0).click();
 
-      expect(onFormSubmit).toHaveProperty('callCount', 1);
+        expect(onFormSubmit).toHaveProperty('callCount', 1);
+      });
     });
   });
 });

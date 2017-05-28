@@ -1,7 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { reduxForm } from 'redux-form';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import renderer from 'react-test-renderer';
 
 import TextAreaForm from './TextAreaForm';
+
+const spy = jest.fn();
+const store = createStore(() => ({}));
+const Decorated = reduxForm({ form: 'test-form' })(TextAreaForm);
 
 describe('TextAreaForm component', () => {
   let defaultProps;
@@ -28,27 +36,67 @@ describe('TextAreaForm component', () => {
   });
 
   describe('Default props', () => {
-    it.skip('renders without crashing', () => {
-      // Displays 'Field must be inside a component decorated with reduxForm()'
-      // Can only shallow render when testing redux-form.
+    it('renders without crashing', () => {
       const div = document.createElement('div');
-      ReactDOM.render(<TextAreaForm { ...defaultProps } />, div);
+      ReactDOM.render(
+        <Provider store={ store }>
+          <Decorated
+            { ...defaultProps }
+            handleSubmit={ spy }
+            submitting={ false }
+            submit={ spy }
+          />
+        </Provider>,
+        div);
     });
 
     it(`should be selectable by id "#text-area-form"`, () => {
       expect(shallow(<TextAreaForm { ...defaultProps } />).is('#text-area-form')).toBe(true);
     });
 
-    it.skip('should mount in a full DOM', () => {
-      // Displays 'Field must be inside a component decorated with reduxForm()'
-      // Can only shallow render when testing redux-form.
-      expect(mount(<TextAreaForm { ...defaultProps } />).find('#text-area-form').length).toBe(1);
+    it('should mount in a full DOM', () => {
+      const wrapper = mount(
+        <Provider store={ store }>
+          <Decorated
+            { ...defaultProps }
+            handleSubmit={ spy }
+            submitting={ false }
+            submit={ spy }
+          />
+        </Provider>
+      );
+
+      expect(wrapper.find('#text-area-form').length).toBe(1);
     });
 
-    it.skip('should render to static HTML', () => {
-      // Displays 'Field must be inside a component decorated with reduxForm()'
-      // Can only shallow render when testing redux-form.
-      expect(render(<TextAreaForm { ...defaultProps } />).text()).toBe('');
+    it('should render to static HTML', () => {
+      const wrapper = mount(
+        <Provider store={ store }>
+          <Decorated
+            { ...defaultProps }
+            handleSubmit={ spy }
+            submitting={ false }
+            submit={ spy }
+          />
+        </Provider>
+      );
+
+      expect(wrapper.text()).toBe('camelCaseCONSTANT_CASEdot.caseHeader-Caselower caselower first caseno caseparam-casePascalCasepath/caseSentence casesnake_caseSWAP CASETitle CaseUPPER CASEUpper first case');
+    });
+
+    it('should render the snapshot', () => {
+      const tree = renderer.create(
+        <Provider store={ store }>
+          <Decorated
+            { ...defaultProps }
+            handleSubmit={ spy }
+            submitting={ false }
+            submit={ spy }
+          />
+        </Provider>
+      ).toJSON();
+
+      expect(tree).toMatchSnapshot();
     });
   });
 });

@@ -1,0 +1,274 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextAreaForm component Default props should render the snapshot 1`] = `
+<form
+  id="text-area-form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field field-text-area"
+  >
+    <textarea
+      autoFocus={true}
+      className="text-area"
+      name="text"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onDragStart={[Function]}
+      onDrop={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      placeholder="Type or paste your content here"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="fields fields-cases"
+  >
+    <button
+      className="button-change-case camel-case"
+      disabled={true}
+      name="camel-case"
+      onClick={undefined}
+      type="submit"
+    >
+      camelCase
+    </button>
+    <button
+      className="button-change-case constant-case"
+      disabled={true}
+      name="constant-case"
+      onClick={undefined}
+      type="submit"
+    >
+      CONSTANT_CASE
+    </button>
+    <button
+      className="button-change-case dot-case"
+      disabled={true}
+      name="dot-case"
+      onClick={undefined}
+      type="submit"
+    >
+      dot.case
+    </button>
+    <button
+      className="button-change-case header-case"
+      disabled={true}
+      name="header-case"
+      onClick={undefined}
+      type="submit"
+    >
+      Header-Case
+    </button>
+    <button
+      className="button-change-case lower-case"
+      disabled={true}
+      name="lower-case"
+      onClick={undefined}
+      type="submit"
+    >
+      lower case
+    </button>
+    <button
+      className="button-change-case lower-first-case"
+      disabled={true}
+      name="lower-first-case"
+      onClick={undefined}
+      type="submit"
+    >
+      lower first case
+    </button>
+    <button
+      className="button-change-case no-case"
+      disabled={true}
+      name="no-case"
+      onClick={undefined}
+      type="submit"
+    >
+      no case
+    </button>
+    <button
+      className="button-change-case param-case"
+      disabled={true}
+      name="param-case"
+      onClick={undefined}
+      type="submit"
+    >
+      param-case
+    </button>
+    <button
+      className="button-change-case pascal-case"
+      disabled={true}
+      name="pascal-case"
+      onClick={undefined}
+      type="submit"
+    >
+      PascalCase
+    </button>
+    <button
+      className="button-change-case path-case"
+      disabled={true}
+      name="path-case"
+      onClick={undefined}
+      type="submit"
+    >
+      path/case
+    </button>
+    <button
+      className="button-change-case sentence-case"
+      disabled={true}
+      name="sentence-case"
+      onClick={undefined}
+      type="submit"
+    >
+      Sentence case
+    </button>
+    <button
+      className="button-change-case snake-case"
+      disabled={true}
+      name="snake-case"
+      onClick={undefined}
+      type="submit"
+    >
+      snake_case
+    </button>
+    <button
+      className="button-change-case swap-case"
+      disabled={true}
+      name="swap-case"
+      onClick={undefined}
+      type="submit"
+    >
+      SWAP CASE
+    </button>
+    <button
+      className="button-change-case title-case"
+      disabled={true}
+      name="title-case"
+      onClick={undefined}
+      type="submit"
+    >
+      Title Case
+    </button>
+    <button
+      className="button-change-case upper-case"
+      disabled={true}
+      name="upper-case"
+      onClick={undefined}
+      type="submit"
+    >
+      UPPER CASE
+    </button>
+    <button
+      className="button-change-case upper-first-case"
+      disabled={true}
+      name="upper-first-case"
+      onClick={undefined}
+      type="submit"
+    >
+      Upper first case
+    </button>
+  </div>
+  <div
+    className="fields fields-actions"
+  >
+    <button
+      className="button-submit"
+      disabled={true}
+      name="clear"
+      onClick={undefined}
+      type="submit"
+    >
+      <svg
+        className="svg-clear"
+        height="24"
+        viewBox="0 0 12 16"
+        width="24"
+      >
+        <path
+          d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"
+          fillOpacity={0.1}
+        />
+      </svg>
+    </button>
+    <button
+      className="button-submit"
+      disabled={true}
+      name="undo"
+      onClick={undefined}
+      type="submit"
+    >
+      <svg
+        className="svg-undo"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <path
+          d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z"
+          fillOpacity={0.1}
+        />
+      </svg>
+    </button>
+    <button
+      className="button-submit"
+      disabled={true}
+      name="copy"
+      onClick={undefined}
+      type="submit"
+    >
+      <svg
+        className="svg-copy"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <path
+          d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+          fillOpacity={0.1}
+        />
+      </svg>
+    </button>
+    <button
+      className="button-submit"
+      disabled={true}
+      name="redo"
+      onClick={undefined}
+      type="submit"
+    >
+      <svg
+        className="svg-redo"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+      >
+        <path
+          d="M18.4 10.6C16.55 8.99 14.15 8 11.5 8c-4.65 0-8.58 3.03-9.96 7.22L3.9 16c1.05-3.19 4.05-5.5 7.6-5.5 1.95 0 3.73.72 5.12 1.88L13 16h9V7l-3.6 3.6z"
+          fillOpacity={0.1}
+        />
+      </svg>
+    </button>
+    <button
+      className="button-submit"
+      disabled={true}
+      name="reset"
+      onClick={undefined}
+      type="submit"
+    >
+      <svg
+        className="svg-reset"
+        height="24"
+        viewBox="0 0 45.579 45.579"
+        width="24"
+      >
+        <path
+          d="M44.514,23.82c-0.746-0.898-1.843-1.416-3.01-1.416c-2.132,0-3.945,1.457-4.406,3.541 c-1.463,6.574-7.41,11.35-14.142,11.35c-7.998,0-14.506-6.506-14.506-14.505c0-8,6.508-14.506,14.506-14.506 c2.633,0,5.16,0.704,7.399,2.052l-1.221,1.237c-0.361,0.366-0.467,0.916-0.267,1.391c0.202,0.476,0.669,0.781,1.185,0.776 l7.954,0.004c0.933-0.008,1.707-0.845,1.703-1.762l-0.032-7.979c-0.002-0.529-0.314-0.994-0.793-1.189 c-0.479-0.193-1.025-0.081-1.388,0.285l-1.205,1.223C32.423,1.525,27.739,0,22.955,0C10.39,0,0.166,10.224,0.166,22.79 c0,12.565,10.224,22.789,22.79,22.789c10.937,0,20.351-7.796,22.388-18.535C45.562,25.896,45.26,24.722,44.514,23.82z"
+          fillOpacity={0.1}
+        />
+      </svg>
+    </button>
+  </div>
+</form>
+`;
