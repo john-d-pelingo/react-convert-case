@@ -26,9 +26,9 @@
     "predeploy": "npm run build",
     "start": "run-p watch:css start:js",
     "start:js": "cross-env NODE_PATH=src react-scripts start",
-    "test": "cross-env NODE_PATH=src react-scripts test --env=jsdom",
-    "test:deploy": "cross-env NODE_PATH=src CI=true react-scripts test --env=jsdom",
+    "test": "cross-env NODE_PATH=src react-scripts test --env=jsdom --no-cache",
     "test:coverage": "cross-env NODE_PATH=src CI=true react-scripts test --env=jsdom --coverage --no-cache && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test:deploy": "cross-env NODE_PATH=src CI=true react-scripts test --env=jsdom --no-cache",
     "watch:css": "nodemon -e scss -x \"npm run build:css\"",
     "watch:lint": "esw -c .eslintrc.yml *.js src --color -w"
   },
