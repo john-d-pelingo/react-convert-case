@@ -4,7 +4,7 @@ node_js:
   - "6"
 #  - "7"
 
-env:
+#env:
 #  global:
 #    - BUILD_TIMEOUT=10000
 
@@ -12,7 +12,7 @@ before_install: rm -rf node_modules
 
 install: npm install
 
-script: npm run build:coverage
+script: npm run build:cd
 
 #after_success: ./node_modules/gh-pages/bin/gh-pages --repo https://$GITHUB_TOKEN@github.com/john-d-pelingo/react-key-codes.git -d build
 
