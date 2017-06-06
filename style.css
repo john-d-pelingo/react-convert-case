@@ -1,0 +1,15 @@
+.section {
+  display    : block;
+  text-align : center;
+}
+
+.static-loading-wrapper {
+  padding : 100px 0;
+}
+
+.static-loading {
+  display : block;
+  height  : 100px;
+  margin  : 0 auto;
+  width   : 100px;
+}
