@@ -52,7 +52,7 @@
   "dependencies": {
     "change-case": "3.0.1",
     "copy-to-clipboard": "3.0.6",
-    "diff": "3.2.0",
+    "diff": "3.5.0",
     "prop-types": "15.5.10",
     "react": "15.5.4",
     "react-dom": "15.5.4",
